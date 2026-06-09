@@ -1,1 +1,400 @@
 store_id,name,prefecture,address,latitude,longitude,source_url
+bowl-a-tomakomai,GiGO BOWLイオンモール苫小牧,北海道,北海道苫小牧市柳町3丁目1番20号 イオンモール苫小牧内,42.657063,141.640335,https://www.gigo.co.jp/shops/bowl-a-tomakomai
+bowl-a-sapporo-teine,GiGO BOWLイオン札幌手稲駅前ショッピングセンター,北海道,北海道札幌市手稲区前田1条11丁目1-1 イオン札幌手稲駅前店 3F,43.121407,141.247055,https://www.gigo.co.jp/shops/bowl-a-sapporo-teine
+bowl-shirakaba,GiGO BOWLドリームタウン白樺,北海道,北海道帯広市白樺16条西2丁目 ドリームタウン白樺内,42.918865,143.173309,https://www.gigo.co.jp/shops/bowl-shirakaba
+bowl-norbesa,GiGO BOWLノルベサ,北海道,北海道札幌市中央区南3条西5丁目1-1 NORBESA 6F,43.056099,141.350815,https://www.gigo.co.jp/shops/bowl-norbesa
+bowl-muroran,GiGO BOWL室蘭,北海道,北海道室蘭市東町4丁目31番3号,42.342724,141.025772,https://www.gigo.co.jp/shops/bowl-muroran
+d-hakodate,GiGO MEGAドン･キホーテ函館,北海道,北海道函館市美原1-7-1 MEGAドン･キホーテ函館店2F,41.814320,140.756210,https://www.gigo.co.jp/shops/d-hakodate
+sapporo-susukino,GiGOすすきの,北海道,北海道札幌市中央区南三条西4-11 シルバービルB区画,43.056313,141.352371,https://www.gigo.co.jp/shops/sapporo-susukino
+chitose-yumai,GiGOちとせモール,北海道,北海道千歳市勇舞8丁目1-1 ちとせモール2F,42.853889,141.627457,https://www.gigo.co.jp/shops/chitose-yumai
+a-tomakomai,GiGOイオンモール苫小牧,北海道,北海道苫小牧市柳町3丁目1番20号 イオンモール苫小牧内,42.657063,141.640335,https://www.gigo.co.jp/shops/a-tomakomai
+a-sapporo-teine,GiGOイオン札幌手稲駅前ショッピングセンター,北海道,北海道札幌市手稲区前田1条11丁目1-1 イオン札幌手稲駅前店 3F,43.121407,141.247055,https://www.gigo.co.jp/shops/a-sapporo-teine
+kamiiso,GiGOクレーンゲームオアシス スーパーセンタートライアル上磯,北海道,北海道北斗市七重浜7丁目14番地1 スーパーセンタートライアル上磯店内,41.820625,140.696213,https://www.gigo.co.jp/shops/kamiiso
+cocono-susukino,GiGOココノススキノ,北海道,北海道札幌市中央区南四条西4-1-1 COCONO SUSUKINO 3F,43.055187,141.352646,https://www.gigo.co.jp/shops/cocono-susukino
+cafestand-norbesa,GiGOコラボカフェスタンド ノルベサ,北海道,北海道札幌市中央区南三条西5丁目1-1 NORBESA 6F,43.056099,141.350815,https://www.gigo.co.jp/shops/cafestand-norbesa
+muroran-chuo,GiGOスーパーアークス室蘭中央,北海道,北海道室蘭市中央町3丁目1番8号 スーパーアークス室蘭中央店3F,42.315075,140.975510,https://www.gigo.co.jp/shops/muroran-chuo
+shirakaba,GiGOドリームタウン白樺,北海道,北海道帯広市白樺16条西2丁目 ドリームタウン白樺内,42.918865,143.173309,https://www.gigo.co.jp/shops/shirakaba
+asahikawa,GiGOメガセンタートライアル旭川,北海道,北海道旭川市6条通14丁目64 メガセンタートライアル旭川店2F,43.768482,142.372208,https://www.gigo.co.jp/shops/asahikawa
+hakodate-showa,GiGO函館昭和,北海道,北海道函館市昭和3丁目24-18 ゲオ函館昭和店内,41.818886,140.734024,https://www.gigo.co.jp/shops/hakodate-showa
+kitami,GiGO北見,北海道,北海道北見市西三輪5丁目1番地16,43.796532,143.842224,https://www.gigo.co.jp/shops/kitami
+muroran,GiGO室蘭,北海道,北海道室蘭市東町4丁目31番3号,42.342724,141.025772,https://www.gigo.co.jp/shops/muroran
+obihiro-inada,GiGO帯広稲田,北海道,北海道帯広市稲田町南8線西12番地1 スズランボウル内,42.891060,143.196091,https://www.gigo.co.jp/shops/obihiro-inada
+sapporo-nishiguchi,GiGO札幌駅西口,北海道,北海道札幌市北区北六条西6丁目1-1 WEST6,43.068222,141.346115,https://www.gigo.co.jp/shops/sapporo-nishiguchi
+hachinohe,GiGO八戸,青森県,青森県八戸市城下4-25-14,40.520016,141.497299,https://www.gigo.co.jp/shops/hachinohe
+hirosaki,GiGO弘前,青森県,青森県弘前市末広1-3-3,40.604122,140.500687,https://www.gigo.co.jp/shops/hirosaki
+ichinoseki,GiGO一関,岩手県,岩手県一関市山目中野92-1,38.933811,141.117218,https://www.gigo.co.jp/shops/ichinoseki
+mizusawa,GiGO水沢,岩手県,岩手県奥州市水沢区佐倉河鎧田4-1,,,https://www.gigo.co.jp/shops/mizusawa
+a-sendai-nakayama,GiGOイオン仙台中山,宮城県,宮城県仙台市泉区南中山1-35-57 イオン仙台中山店別館3F,38.298996,140.825531,https://www.gigo.co.jp/shops/a-sendai-nakayama
+cafestand-sendai,GiGOコラボカフェスタンド仙台,宮城県,宮城県仙台市青葉区中央2-5-5 三経60ビル（GiGO仙台内）,38.261436,140.876755,https://www.gigo.co.jp/shops/cafestand-sendai
+natori-medeshimanosato,GiGOホームセンタームサシ名取,宮城県,宮城県名取市愛島郷1-1-1 ホームセンタームサシ名取店内2F,38.160740,140.857559,https://www.gigo.co.jp/shops/natori-medeshimanosato
+sendai,GiGO仙台,宮城県,宮城県仙台市青葉区中央2-5-5 三経60ビル,38.261436,140.876755,https://www.gigo.co.jp/shops/sendai
+sendai-korona,GiGO仙台コロナワールド,宮城県,宮城県仙台市宮城野区福室字田中前一番53-1,38.260223,140.969147,https://www.gigo.co.jp/shops/sendai-korona
+sendai-ichibancho,GiGO仙台一番町,宮城県,宮城県仙台市青葉区一番町4-5-13 サンシャインビル1F,38.263912,140.871002,https://www.gigo.co.jp/shops/sendai-ichibancho
+sanuma,GiGO佐沼,宮城県,宮城県登米市迫町佐沼中江2-5-8,38.690533,141.189621,https://www.gigo.co.jp/shops/sanuma
+rifu,GiGO利府,宮城県,宮城県宮城郡利府町加瀬字新前谷地55-1 利府ペアガーデン内,38.328510,140.975769,https://www.gigo.co.jp/shops/rifu
+natori,GiGO名取,宮城県,宮城県名取市飯野坂土城堀57-1,38.156860,140.888580,https://www.gigo.co.jp/shops/natori
+izumichuo,GiGO泉中央ショッピングプラザセルバ,宮城県,宮城県仙台市泉区泉中央1-4-1 泉ショッピングプラザセルバ,38.323639,140.882217,https://www.gigo.co.jp/shops/izumichuo
+ishinomaki,GiGO石巻,宮城県,宮城県石巻市大街道東4-1-45,38.429531,141.285019,https://www.gigo.co.jp/shops/ishinomaki
+akita,GiGO秋田,秋田県,秋田県秋田市茨島1-1-16,39.704941,140.102615,https://www.gigo.co.jp/shops/akita
+shirataka,GiGOマックスバリュ白鷹,山形県,山形県西置賜郡白鷹町荒砥乙535-1 マックスバリュ白鷹店内 プレビプレイランドコーナー,38.184605,140.105499,https://www.gigo.co.jp/shops/shirataka
+yonezawa-ekimae,GiGOヨークベニマル米沢,山形県,山形県米沢市駅前3-1-18 ヨークベニマル米沢店内,37.911663,140.126846,https://www.gigo.co.jp/shops/yonezawa-ekimae
+kita-yamagata,GiGO北山形,山形県,山形県山形市北町1-3-20,38.268463,140.331238,https://www.gigo.co.jp/shops/kita-yamagata
+tendo,GiGO天童,山形県,山形県天童市南町1-5-26 ららパーク内,38.342953,140.373810,https://www.gigo.co.jp/shops/tendo
+shonai,GiGO庄内,山形県,山形県東田川郡三川町猪子大堰端326-6,38.820278,139.834045,https://www.gigo.co.jp/shops/shonai
+shinjo,GiGO新庄,山形県,山形県新庄市金沢1068,38.763401,140.309677,https://www.gigo.co.jp/shops/shinjo
+yonezawa,GiGO米沢,山形県,山形県米沢市花沢タナコ原177,37.928589,140.125839,https://www.gigo.co.jp/shops/yonezawa
+iwaki-kashima,GiGOいわきエブリア,福島県,福島県いわき市鹿島町米田字日渡5 いわきエブリア内2F,36.993458,140.904968,https://www.gigo.co.jp/shops/iwaki-kashima
+iwaki-izumi,GiGOヨークベニマルいわき泉,福島県,福島県いわき市泉滝尻3丁目12-26 ヨークベニマル泉店内プレビプレイランドコーナーあひるのたまご,36.952591,140.862320,https://www.gigo.co.jp/shops/iwaki-izumi
+aizuwakamatsu,GiGO会津若松,福島県,福島県会津若松市町北町大字上荒久田字宮下142,37.518253,139.922455,https://www.gigo.co.jp/shops/aizuwakamatsu
+nakoso,GiGO勿来,福島県,福島県いわき市勿来町四沢鍵田13,36.889538,140.783707,https://www.gigo.co.jp/shops/nakoso
+hiwada,GiGO日和田,福島県,福島県郡山市日和田町西中島7-1,37.447815,140.380844,https://www.gigo.co.jp/shops/hiwada
+shirakawa,GiGO白河,福島県,福島県白河市新高山1-1 メガステージ白河内,37.118519,140.193832,https://www.gigo.co.jp/shops/shirakawa
+fukushima,GiGO福島,福島県,福島県福島市本内中井1-2,37.785507,140.487854,https://www.gigo.co.jp/shops/fukushima
+fukushima-minami,GiGO福島南,福島県,福島県福島市黒岩字中島7番2号,37.727570,140.467316,https://www.gigo.co.jp/shops/fukushima-minami
+bowl-ishioka,GiGO BOWL石岡,茨城県,茨城県石岡市東大橋中峯1977-1,36.198200,140.308090,https://www.gigo.co.jp/shops/bowl-ishioka
+d-katsuta,GiGO MEGAドン･キホーテ勝田,茨城県,茨城県ひたちなか市石川町1-1 MEGAドン･キホーテ勝田店2F,36.393135,140.527557,https://www.gigo.co.jp/shops/d-katsuta
+sea-mark,GiGO SEAMARK SQUARE,茨城県,茨城県日立市東滑川町5-1-3 SEAMARK SQUARE,36.617416,140.677490,https://www.gigo.co.jp/shops/sea-mark
+hitachinaka,GiGOひたちなか,茨城県,茨城県ひたちなか市田中後40-11,36.347847,140.580505,https://www.gigo.co.jp/shops/hitachinaka
+ibaraki-kashima,GiGOショッピングセンターチェリオ鹿嶋,茨城県,茨城県鹿嶋市宮中290-1 ショッピンセンターチェリオ1階,35.959229,140.642563,https://www.gigo.co.jp/shops/ibaraki-kashima
+tsukuba,GiGOデイズタウンつくば,茨城県,茨城県つくば市竹園1-9-2 デイズタウンつくばB1F,36.078007,140.115036,https://www.gigo.co.jp/shops/tsukuba
+tsukuba-ekimae,GiGOトナリエクレオつくば,茨城県,茨城県つくば市吾妻1-7-1 トナリエクレオ3F,36.080475,140.111984,https://www.gigo.co.jp/shops/tsukuba-ekimae
+hitachi-ekimae,GiGOヒタチエ,茨城県,茨城県日立市幸町1-16-1 日立SCビル5Fプレビプレイランドコーナー こころっこ,36.591763,140.658936,https://www.gigo.co.jp/shops/hitachi-ekimae
+hitachi,GiGO日立,茨城県,茨城県日立市田尻町3-26-1,36.626606,140.669876,https://www.gigo.co.jp/shops/hitachi
+mito,GiGO水戸,茨城県,茨城県水戸市宮町1-7-44 コムボックス310,36.369579,140.475098,https://www.gigo.co.jp/shops/mito
+mito-ekimae,GiGO水戸オーパ,茨城県,茨城県水戸市宮町1丁目7-33 水戸OPA店内7F,36.370007,140.475922,https://www.gigo.co.jp/shops/mito-ekimae
+mito-minami,GiGO水戸南,茨城県,茨城県水戸市千波町2017番地1 フェドラP&D水戸1F,36.351063,140.443954,https://www.gigo.co.jp/shops/mito-minami
+edosaki,GiGO江戸崎ショッピングセンターパンプ,茨城県,茨城県稲敷市江戸崎甲4836 パンプ江戸崎SC1F,35.959206,140.315918,https://www.gigo.co.jp/shops/edosaki
+ishioka,GiGO石岡,茨城県,茨城県石岡市東大橋中峯1976-1,36.198200,140.308090,https://www.gigo.co.jp/shops/ishioka
+kamisu,GiGO神栖,茨城県,茨城県神栖市神栖1-8-1,35.897629,140.644348,https://www.gigo.co.jp/shops/kamisu
+ryugasaki,GiGO龍ヶ崎,茨城県,茨城県龍ヶ崎市藤が丘4-2-6,35.938522,140.195389,https://www.gigo.co.jp/shops/ryugasaki
+miyukigahara,GiGOヨークベニマル御幸ヶ原,栃木県,栃木県宇都宮市御幸ケ原町50-1 ヨークベニマル御幸ヶ原店内プレビプレイランドコーナージャンボリー,36.592319,139.927155,https://www.gigo.co.jp/shops/miyukigahara
+utsunomiya,GiGO宇都宮,栃木県,栃木県宇都宮市東宿郷5-1-7,36.558426,139.908875,https://www.gigo.co.jp/shops/utsunomiya
+oyama,GiGO小山,栃木県,栃木県小山市東城南1-1-18,36.299095,139.809631,https://www.gigo.co.jp/shops/oyama
+nikko,GiGO日光,栃木県,栃木県日光市芹沼1448-1,36.741447,139.709564,https://www.gigo.co.jp/shops/nikko
+nishi-nasuno,GiGO西那須野,栃木県,栃木県那須塩原市南郷屋2-106-27,36.893841,139.982788,https://www.gigo.co.jp/shops/nishi-nasuno
+ashikaga-asakura,GiGO足利朝倉,栃木県,栃木県足利市朝倉町244-1,36.321991,139.450516,https://www.gigo.co.jp/shops/ashikaga-asakura
+isesaki-mimuro,GiGO MEGAドン・キホーテUNY伊勢崎東,群馬県,群馬県伊勢崎市三室町5330 MEGAドン･キホーテUNY伊勢崎東店2F,36.329597,139.234207,https://www.gigo.co.jp/shops/isesaki-mimuro
+d-kiryu,GiGO MEGAドン･キホーテ桐生,群馬県,群馬県桐生市永楽町5-10 MEGAドン･キホーテ桐生店3F,36.412357,139.336319,https://www.gigo.co.jp/shops/d-kiryu
+maebashi,GiGOけやきウォーク前橋,群馬県,群馬県前橋市文京町2-1-1 アピタけやきウォーク前橋店2F,36.380619,139.076813,https://www.gigo.co.jp/shops/maebashi
+takasaki-yanaka,GiGOアピタ高崎,群馬県,群馬県高崎市矢中町668-1 アピタ高崎店2F,36.306900,139.048309,https://www.gigo.co.jp/shops/takasaki-yanaka
+gunma-chiyoda,GiGOジョイフル本田千代田,群馬県,群馬県邑楽郡千代田町萱野813-1 ジョイフル本田千代田店内2F,36.205578,139.473053,https://www.gigo.co.jp/shops/gunma-chiyoda
+smark-isesaki,GiGOスマーク伊勢崎,群馬県,群馬県伊勢崎市西小保方町368 スマーク伊勢崎3F302区画,36.339588,139.232391,https://www.gigo.co.jp/shops/smark-isesaki
+ota,GiGO太田,群馬県,群馬県太田市西矢島町575,36.274666,139.377838,https://www.gigo.co.jp/shops/ota
+ota-nitta,GiGO新田ショッピングセンターニコ･モール,群馬県,群馬県太田市新田市野井町592-13 ニコモール新田店内,36.302780,139.302261,https://www.gigo.co.jp/shops/ota-nitta
+numata,GiGO沼田,群馬県,群馬県沼田市下久屋町1100-1,36.656845,139.078918,https://www.gigo.co.jp/shops/numata
+tatebayashi,GiGO館林,群馬県,群馬県館林市小桑原町949-1,36.234707,139.520599,https://www.gigo.co.jp/shops/tatebayashi
+koshigaya,GiGO ALCo越谷ショッピングスクエア,埼玉県,埼玉県越谷市越ケ谷1-16-6 ALCo越谷ショッピングスクエア内B1F,35.886868,139.788589,https://www.gigo.co.jp/shops/koshigaya
+kitamoto,GiGO HEY WORLD北本,埼玉県,埼玉県北本市深井6-87 HeyWorld店内,36.053493,139.525879,https://www.gigo.co.jp/shops/kitamoto
+d-honjo-minami,GiGO MEGAドン・キホーテUNY本庄,埼玉県,埼玉県本庄市南1-2-10 MEGAドン･キホーテUNY本庄店1F,36.235245,139.181656,https://www.gigo.co.jp/shops/d-honjo-minami
+d-urawa-harayama,GiGO MEGAドン・キホーテ浦和原山,埼玉県,埼玉県さいたま市緑区原山4-3-3 MEGAドン･キホーテ浦和原山店2F,35.871334,139.674057,https://www.gigo.co.jp/shops/d-urawa-harayama
+d-misato,GiGO MEGAドン･キホーテ三郷,埼玉県,埼玉県三郷市さつき平1-1-1 MEGAドン･キホーテ三郷店2F,35.852695,139.867294,https://www.gigo.co.jp/shops/d-misato
+d-hasuda,GiGO MEGAドン･キホーテ蓮田,埼玉県,埼玉県蓮田市東4-5-13 MEGAドン・キホーテ蓮田店2階,35.979858,139.657852,https://www.gigo.co.jp/shops/d-hasuda
+llp-fujimi,GiGOららぽーと富士見,埼玉県,埼玉県富士見市山室1-1313 ららぽーと富士見3F3520号室,35.858746,139.547913,https://www.gigo.co.jp/shops/llp-fujimi
+llt-kawaguchi,GiGOららテラス川口,埼玉県,埼玉県川口市栄町3-5-1 8F,35.802479,139.718582,https://www.gigo.co.jp/shops/llt-kawaguchi
+kawagoe,GiGOアトレ川越,埼玉県,埼玉県川越市脇田町105番地 アトレ川越1F,35.908382,139.483047,https://www.gigo.co.jp/shops/kawagoe
+ageo,GiGOアリオ上尾,埼玉県,埼玉県上尾市壱丁目北29番地14 アリオ上尾店内2F南ASOBI諸島,35.959564,139.569489,https://www.gigo.co.jp/shops/ageo
+fukaya,GiGOアリオ深谷,埼玉県,埼玉県深谷市上柴町西4-2-14 アリオ深谷店2F,36.181110,139.298462,https://www.gigo.co.jp/shops/fukaya
+a-yono,GiGOイオンモール与野,埼玉県,埼玉県さいたま市中央区本町西5-2-9 イオンモール与野 3F,35.889599,139.615906,https://www.gigo.co.jp/shops/a-yono
+a-kawaguchi,GiGOイオンモール川口,埼玉県,埼玉県川口市安行領根岸3180 イオンモール川口2F,35.839615,139.723526,https://www.gigo.co.jp/shops/a-kawaguchi
+a-urawa-misono,GiGOイオンモール浦和美園,埼玉県,埼玉県さいたま市緑区美園5-50-1 イオンモール浦和美園2F,35.890839,139.731522,https://www.gigo.co.jp/shops/a-urawa-misono
+kuki,GiGOイトーヨーカドー久喜,埼玉県,埼玉県久喜市久喜中央4-9-11 イトーヨーカドー久喜店内4F,36.069969,139.675156,https://www.gigo.co.jp/shops/kuki
+iruma-toyooka,GiGOクレーンゲームオアシス入間,埼玉県,埼玉県入間市豊岡1-11-1 入間アイポットビル2F,35.835709,139.387070,https://www.gigo.co.jp/shops/iruma-toyooka
+saitamaooi,GiGOビバモール埼玉大井,埼玉県,埼玉県ふじみ野市西鶴ケ岡1-3-15 ビバモール埼玉大井,35.862591,139.501144,https://www.gigo.co.jp/shops/saitamaooi
+honjo-chuo,GiGOビバモール本庄,埼玉県,埼玉県本庄市中央2-4-60 ビバモール本庄 2F2-12区画,36.243671,139.187775,https://www.gigo.co.jp/shops/honjo-chuo
+warabi-nishikicho,GiGOビバモール蕨錦町,埼玉県,埼玉県蕨市錦町1-12-1 ビバモール蕨錦町 2F218区画,35.822811,139.677795,https://www.gigo.co.jp/shops/warabi-nishikicho
+saitama-fukiage,GiGOフジモール吹上,埼玉県,埼玉県鴻巣市袋90-1 FUJIMALL吹上,36.095161,139.466385,https://www.gigo.co.jp/shops/saitama-fukiage
+saitama-wakaba,GiGOワカバウォーク,埼玉県,埼玉県鶴ヶ島市富士見1-2-1 ワカバウォーク2F,35.949432,139.409744,https://www.gigo.co.jp/shops/saitama-wakaba
+iruma,GiGO入間,埼玉県,埼玉県入間市東藤沢２ー１８,35.819008,139.418381,https://www.gigo.co.jp/shops/iruma
+minami-koshigaya,GiGO南越谷ラクーン,埼玉県,埼玉県越谷市南越谷1-15-1 ラクーン南越谷2F,35.875023,139.793213,https://www.gigo.co.jp/shops/minami-koshigaya
+omiya,GiGO大宮アルシェ,埼玉県,埼玉県さいたま市大宮区桜木町2丁目1番地1 大宮アルシェ,35.906166,139.622147,https://www.gigo.co.jp/shops/omiya
+omiya-nishiguchi,GiGO大宮西口,埼玉県,埼玉県さいたま市大宮区桜木町2-3-2 泰伸ビル2F,35.906990,139.621796,https://www.gigo.co.jp/shops/omiya-nishiguchi
+kawaguchi,GiGO川口,埼玉県,埼玉県川口市東領家2-2-10,35.794575,139.747879,https://www.gigo.co.jp/shops/kawaguchi
+tokorozawa,GiGO所沢,埼玉県,埼玉県所沢市日吉町8-1,35.788414,139.471710,https://www.gigo.co.jp/shops/tokorozawa
+kagohara,GiGO籠原,埼玉県,埼玉県熊谷市美土里町1-169,36.170643,139.318161,https://www.gigo.co.jp/shops/kagohara
+saitama-hanazono,GiGO花園,埼玉県,埼玉県深谷市荒川359,36.120159,139.233917,https://www.gigo.co.jp/shops/saitama-hanazono
+ichihara,GiGO MEGAドン・キホーテUNY市原,千葉県,千葉県市原市青柳北1-1 MEGAドン･キホーテUNY市原店2F,35.514351,140.066177,https://www.gigo.co.jp/shops/ichihara
+d-yotsukaido,GiGO MEGAドン･キホーテ四街道,千葉県,千葉県四街道市めいわ2-1-1 MEGAドン･キホーテ四街道店2F,35.652531,140.169846,https://www.gigo.co.jp/shops/d-yotsukaido
+narita-newtown,GiGOそよら成田ニュータウン,千葉県,千葉県成田市赤坂2-1-10 そよら成田ニュータウン,35.778236,140.290726,https://www.gigo.co.jp/shops/narita-newtown
+taiyaki-llp-tokyo-bay,GiGOのたい焼き ららぽーとTOKYO-BAY,千葉県,千葉県船橋市浜町2-1-1 ららぽーとTOKYO-BAY,35.686241,139.990204,https://www.gigo.co.jp/shops/taiyaki-llp-tokyo-bay
+taiyaki-a-tsudanuma-south,GiGOのたい焼きイオンモール津田沼South,千葉県,千葉県習志野市津田沼1-10-30 イオンモール津田沼South,35.689766,140.023468,https://www.gigo.co.jp/shops/taiyaki-a-tsudanuma-south
+llp-tokyo-bay,GiGOららぽーとTOKYO-BAY,千葉県,千葉県船橋市浜町2丁目1番1号 ららぽーとTOKYO-BAY西館3Fマリンガーデン,35.686241,139.990204,https://www.gigo.co.jp/shops/llp-tokyo-bay
+llp-kashiwanoha,GiGOららぽーと柏の葉,千葉県,千葉県柏市若柴175 ららぽーと柏の葉3F,35.893353,139.951187,https://www.gigo.co.jp/shops/llp-kashiwanoha
+llt-tokyo-bay,GiGOららテラスTOKYO-BAY,千葉県,千葉県船橋市若松2-1-4 ららテラスTOKYO-BAY 1F,35.682053,139.994278,https://www.gigo.co.jp/shops/llt-tokyo-bay
+kisarazu,GiGOアピタ木更津,千葉県,千葉県木更津市ほたる野4-2-48 アピタ木更津店2F,35.375458,139.962631,https://www.gigo.co.jp/shops/kisarazu
+a-tsudanuma-south,GiGOイオンモール津田沼South,千葉県,千葉県習志野市津田沼1-10-30 イオンモール津田沼South,35.689766,140.023468,https://www.gigo.co.jp/shops/a-tsudanuma-south
+a-choshi,GiGOイオンモール銚子,千葉県,千葉県銚子市三崎町2丁目2660-1 イオンモール銚子内,35.709991,140.787796,https://www.gigo.co.jp/shops/a-choshi
+a-kita-kogane,GiGOイオン北小金,千葉県,千葉県松戸市小金1番地 イオン北小金店5F,35.832893,139.931442,https://www.gigo.co.jp/shops/a-kita-kogane
+a-shin-urayasu,GiGOイオン新浦安ショッピングセンター,千葉県,千葉県浦安市入船1-4-1 イオンスタイル新浦安4F,35.649055,139.914963,https://www.gigo.co.jp/shops/a-shin-urayasu
+matsudo,GiGOキテミテマツド,千葉県,千葉県松戸市松戸1307-1 キテミテマツド店内6F南ASOBI諸島,35.782314,139.898926,https://www.gigo.co.jp/shops/matsudo
+inage-naganuma,GiGOクレーンゲームオアシス ワンズモール,千葉県,千葉県千葉市稲毛区長沼町330-50 ワンズモール稲毛,35.657303,140.117447,https://www.gigo.co.jp/shops/inage-naganuma
+chiba-newtown,GiGOジョイフル本田千葉ニュータウン,千葉県,千葉県印西市牧の原2-1 ジョイフル本田千葉ニュータウン店2F,35.807137,140.155579,https://www.gigo.co.jp/shops/chiba-newtown
+soga,GiGOフェスティバルウォーク蘇我,千葉県,千葉県千葉市中央区川崎町51-1 蘇我ハーバーシティーフェスティバルウォークアミューズメント棟1F,35.592579,140.118149,https://www.gigo.co.jp/shops/soga
+kashiwa-oyamadai,GiGOモラージュ柏,千葉県,千葉県柏市大山台2丁目3番地 モラージュ柏2F,35.882629,139.969238,https://www.gigo.co.jp/shops/kashiwa-oyamadai
+yabashira,GiGO八柱,千葉県,千葉県松戸市日暮1-1-1 八柱駅第2ビル2階,35.792057,139.938507,https://www.gigo.co.jp/shops/yabashira
+chiba,GiGO千葉,千葉県,千葉県千葉市中央区富士見2-4-1,35.611576,140.115784,https://www.gigo.co.jp/shops/chiba
+makuhari,GiGO幕張,千葉県,千葉県千葉市美浜区ひび野1-8 メッセアミューズモール1F,35.649830,140.042603,https://www.gigo.co.jp/shops/makuhari
+abiko,GiGO我孫子,千葉県,千葉県我孫子市柴崎天王谷47-1,35.877205,140.034195,https://www.gigo.co.jp/shops/abiko
+asahi,GiGO旭,千葉県,千葉県旭市二野場3150-1,35.716034,140.648178,https://www.gigo.co.jp/shops/asahi
+kashiwa,GiGO柏,千葉県,千葉県柏市柏1-1-11 丸井デパート内B1F,35.861233,139.970871,https://www.gigo.co.jp/shops/kashiwa
+inage-sonnocho,GiGO稲毛オーツーパーク,千葉県,千葉県千葉市稲毛区園生町380番地1号,35.651718,140.119476,https://www.gigo.co.jp/shops/inage-sonnocho
+bowl-kasai,GiGO BOWLアリオ葛西,東京都,東京都江戸川区東葛西9-3-3 アリオ葛西3F,35.653355,139.880692,https://www.gigo.co.jp/shops/bowl-kasai
+poker-roppongi,GiGO POKER六本木,東京都,東京都港区六本木7-14-11 メトロシティ六本木4F,35.663563,139.731369,https://www.gigo.co.jp/shops/poker-roppongi
+poker-shinjuku,GiGO POKER新宿,東京都,東京都新宿区歌舞伎町1-21-1 第二東亜会館2F,35.694965,139.701279,https://www.gigo.co.jp/shops/poker-shinjuku
+poker-shinjuku-nishiguchi,GiGO POKER新宿西口,東京都,東京都新宿区西新宿1-13-2 松原ビル 6F,35.689781,139.696960,https://www.gigo.co.jp/shops/poker-shinjuku-nishiguchi
+inagi-wakabadai,GiGO SOCOLA若葉台,東京都,東京都稲城市坂浜1325-1 SOCOLA若葉台3F,35.620457,139.488403,https://www.gigo.co.jp/shops/inagi-wakabadai
+akigawa,GiGOあきるのプレイス,東京都,東京都あきる野市秋川1-17-1 あきる野東急4F,35.730888,139.287292,https://www.gigo.co.jp/shops/akigawa
+taiyaki-a-musashimurayama,GiGOのたい焼きイオンモールむさし村山,東京都,東京都武蔵村山市榎1-1-3 イオンモールむさし村山2F,35.746552,139.385162,https://www.gigo.co.jp/shops/taiyaki-a-musashimurayama
+taiyaki-ikebukuro3,GiGOのたい焼き池袋3号館,東京都,東京都豊島区東池袋1-1-3 池袋北辰ビル,35.729874,139.713257,https://www.gigo.co.jp/shops/taiyaki-ikebukuro3
+taiyaki-shibuya,GiGOのたい焼き渋谷,東京都,東京都渋谷区宇田川町29-4 ゼンモールビル,35.660583,139.698257,https://www.gigo.co.jp/shops/taiyaki-shibuya
+taiyaki-akihabara5,GiGOのたい焼き秋葉原5号館,東京都,東京都千代田区外神田1-10-1 吉葉無線ビル,35.698746,139.770599,https://www.gigo.co.jp/shops/taiyaki-akihabara5
+taiyaki-sohonten,GiGOのたい焼き総本店,東京都,東京都豊島区東池袋1-13-6 ロクマルゲートIKEBUKURO2F,35.729591,139.714813,https://www.gigo.co.jp/shops/taiyaki-sohonten
+machida-asahi,GiGOままともプラザ町田,東京都,東京都町田市旭町1-24-1 ままともプラザ町田店内2F,35.554443,139.442276,https://www.gigo.co.jp/shops/machida-asahi
+machida-negishi,GiGOアメリア町田根岸ショッピングセンター,東京都,東京都町田市根岸2丁目18番地1号 アメリア町田根岸店内2Fプレビプレイランドコーナーこころっこ,35.576424,139.410843,https://www.gigo.co.jp/shops/machida-negishi
+inagi-yanokuchi,GiGOアメリア稲城ショッピングセンター,東京都,東京都稲城市矢野口2284-1 アメリア稲城SC内2F,35.635681,139.514954,https://www.gigo.co.jp/shops/inagi-yanokuchi
+kitasuna,GiGOアリオ北砂,東京都,東京都江東区北砂2-17-1 アリオ北砂店アリオモール3F,35.681305,139.826630,https://www.gigo.co.jp/shops/kitasuna
+kasai,GiGOアリオ葛西,東京都,東京都江戸川区東葛西9-3-3 イトーヨーカドー3F,35.653355,139.880692,https://www.gigo.co.jp/shops/kasai
+a-musashimurayama,GiGOイオンモールむさし村山,東京都,東京都武蔵村山市榎1-1-3,35.746552,139.385162,https://www.gigo.co.jp/shops/a-musashimurayama
+hachioji-hazama,GiGOイトーヨーカドー八王子,東京都,東京都八王子市狭間町1462-1 イトーヨーカドー八王子,35.637585,139.292969,https://www.gigo.co.jp/shops/hachioji-hazama
+chofu-kokuryo,GiGOイトーヨーカドー国領,東京都,東京都調布市国領町8-2-64 イトーヨーカドー国領店3F,35.648190,139.565018,https://www.gigo.co.jp/shops/chofu-kokuryo
+higashikurume,GiGOイトーヨーカドー東久留米,東京都,東京都東久留米市本町3-8-1 イトーヨーカドー東久留米店内3Fこころっこ,35.760059,139.528702,https://www.gigo.co.jp/shops/higashikurume
+musashi-koganei,GiGOイトーヨーカドー武蔵小金井,東京都,東京都小金井市本町6-14-9 イトーヨーカドー武蔵小金井店4F,35.700085,139.505447,https://www.gigo.co.jp/shops/musashi-koganei
+sumida-bunka,GiGOオリンピック墨田文花,東京都,東京都墨田区文花1-31-9 オリンピック墨田文花店1F,35.706295,139.823868,https://www.gigo.co.jp/shops/sumida-bunka
+cafestand-ikebukuro2,GiGOコラボカフェスタンド池袋2号館,東京都,東京都豊島区東池袋１丁目２１-１ ラグーン池袋ビル B2F GiGO池袋2号館内,35.730133,139.716003,https://www.gigo.co.jp/shops/cafestand-ikebukuro2
+cafestand-akihabara2,GiGOコラボカフェスタンド秋葉原2号館,東京都,東京都千代田区外神田1丁目15-１ 半田ビル2F,35.697723,139.771393,https://www.gigo.co.jp/shops/cafestand-akihabara2
+cafestand-akihabara3,GiGOコラボカフェスタンド秋葉原3号館,東京都,東京都千代田区外神田1-11-11 外神田１丁目ビルディング GiGO 秋葉原3号館内,35.699192,139.770889,https://www.gigo.co.jp/shops/cafestand-akihabara3
+cafe-ikebukuro2,GiGOコラボカフェ池袋2号館,東京都,東京都豊島区東池袋1-21-1 ラグーン池袋ビルB2,35.730133,139.716003,https://www.gigo.co.jp/shops/cafe-ikebukuro2
+cafe-akihabara3,GiGOコラボカフェ秋葉原3号館,東京都,東京都千代田区外神田一丁目11番11号 外神田1丁目ビルディング 6階・7階,35.699192,139.770889,https://www.gigo.co.jp/shops/cafe-akihabara3
+kojiya,GiGOマルエツ新糀谷,東京都,東京都大田区萩中2-12-5 マルエツ新糀谷店2F,35.551300,139.733017,https://www.gigo.co.jp/shops/kojiya
+mizue,GiGOラパーク瑞江,東京都,東京都江戸川区瑞江2-1-2 ドン･キホーテラパーク瑞江店4F,35.692455,139.896622,https://www.gigo.co.jp/shops/mizue
+seiseki-sakuragaoka,GiGOヴィータモールせいせき,東京都,東京都多摩市関戸4-72,35.649632,139.447052,https://www.gigo.co.jp/shops/seiseki-sakuragaoka
+hachioji-takakura,GiGO八王子高倉,東京都,東京都八王子市高倉町55-4,35.664764,139.366898,https://www.gigo.co.jp/shops/hachioji-takakura
+roppongi,GiGO六本木,東京都,東京都港区六本木7-14-11 メトロシティ六本木1F-3F,35.663563,139.731369,https://www.gigo.co.jp/shops/roppongi
+roppongi-imoarai-zaka,GiGO六本木芋洗坂,東京都,東京都港区六本木6-1-3 六門ビル,35.662449,139.731354,https://www.gigo.co.jp/shops/roppongi-imoarai-zaka
+minami-machida-kids,GiGO南町田グランベリーパーク キッズディスカバリー,東京都,東京都町田市鶴間三丁目4-1 キッズディスカバリー2階 E201区画,35.510033,139.470398,https://www.gigo.co.jp/shops/minami-machida-kids
+minami-machida-theater,GiGO南町田グランベリーパークワンダーシアター,東京都,東京都町田市鶴間三丁目4-1 ワンダーシアター1階 H103区画,35.510033,139.470398,https://www.gigo.co.jp/shops/minami-machida-theater
+omori,GiGO大森,東京都,東京都大田区山王2-1-5,35.590153,139.728134,https://www.gigo.co.jp/shops/omori
+fuchu,GiGO府中,東京都,東京都府中市西原町1-6-2 府中クレッセ内,35.682468,139.460251,https://www.gigo.co.jp/shops/fuchu
+narimasu,GiGO成増,東京都,東京都板橋区成増2-17-24 成増GRAVITY,35.777744,139.631256,https://www.gigo.co.jp/shops/narimasu
+shin-okubo,GiGO新大久保,東京都,東京都新宿区百人町2-10-1 南雲ビルB1F,35.701595,139.699661,https://www.gigo.co.jp/shops/shin-okubo
+shinjuku-kabukicho,GiGO新宿歌舞伎町,東京都,東京都新宿区歌舞伎町1丁目21番1号 第二東亜会館1F・2F,35.694965,139.701279,https://www.gigo.co.jp/shops/shinjuku-kabukicho
+shinjuku-nishiguchi,GiGO新宿西口,東京都,東京都新宿区西新宿1-12-5,35.689419,139.697357,https://www.gigo.co.jp/shops/shinjuku-nishiguchi
+ariake,GiGO有明ガーデン,東京都,東京都江東区有明2-1-8 有明ガーデン 5F,35.637699,139.790451,https://www.gigo.co.jp/shops/ariake
+tokyodomecity,GiGO東京ドームシティ,東京都,東京都文京区後楽1-3-61,35.703152,139.752151,https://www.gigo.co.jp/shops/tokyodomecity
+musashikoyama,GiGO武蔵小山,東京都,東京都品川区小山3-22-19,35.618950,139.705185,https://www.gigo.co.jp/shops/musashikoyama
+ikegami,GiGO池上,東京都,東京都大田区池上6-2-23,35.572342,139.702133,https://www.gigo.co.jp/shops/ikegami
+ikebukuro1,GiGO池袋1号館,東京都,東京都豊島区東池袋1-22-12 第二高和ビル(ダイニコウワビル),35.729931,139.716095,https://www.gigo.co.jp/shops/ikebukuro1
+ikebukuro2,GiGO池袋2号館,東京都,東京都豊島区東池袋1-21-1 ラグーン池袋ビルB1,35.730133,139.716003,https://www.gigo.co.jp/shops/ikebukuro2
+ikebukuro3,GiGO池袋3号館,東京都,東京都豊島区東池袋1-1-3 池袋北辰ビル,35.729874,139.713257,https://www.gigo.co.jp/shops/ikebukuro3
+shibuya,GiGO渋谷,東京都,東京都渋谷区宇田川町29-4 ゼンモールビル,35.660583,139.698257,https://www.gigo.co.jp/shops/shibuya
+shibuya-miyamasuzaka,GiGO渋谷宮益坂,東京都,東京都渋谷区渋谷1-14-14,35.660069,139.702484,https://www.gigo.co.jp/shops/shibuya-miyamasuzaka
+machida,GiGO町田,東京都,東京都町田市原町田6-13-17 アーバンミサワビル,35.543781,139.446884,https://www.gigo.co.jp/shops/machida
+machida-ekimae,GiGO町田東急ツインズ,東京都,東京都町田市原町田6-4-1 東急町田ツインズイースト304A305A,35.542442,139.446060,https://www.gigo.co.jp/shops/machida-ekimae
+kagurazaka,GiGO神楽坂,東京都,東京都新宿区神楽坂2-11,35.700607,139.741806,https://www.gigo.co.jp/shops/kagurazaka
+fussa,GiGO福生,東京都,東京都福生市福生1076-1,35.741077,139.321472,https://www.gigo.co.jp/shops/fussa
+akihabara2,GiGO秋葉原2号館,東京都,東京都千代田区外神田1-15-1 半田ビル,35.697723,139.771393,https://www.gigo.co.jp/shops/akihabara2
+akihabara3,GiGO秋葉原3号館,東京都,東京都千代田区外神田1-11-11,35.699192,139.770889,https://www.gigo.co.jp/shops/akihabara3
+akihabara5,GiGO秋葉原5号館,東京都,東京都千代田区外神田1-10-1 吉葉無線ビル,35.698746,139.770599,https://www.gigo.co.jp/shops/akihabara5
+tachikawa,GiGO立川,東京都,東京都立川市柴崎町3-2-1 サザンビル1F,35.697296,139.414185,https://www.gigo.co.jp/shops/tachikawa
+tateishi,GiGO立石,東京都,東京都葛飾区立石7-3-6,35.739845,139.849182,https://www.gigo.co.jp/shops/tateishi
+takenotsuka,GiGO竹の塚,東京都,東京都足立区竹の塚6丁目8番,35.794769,139.792587,https://www.gigo.co.jp/shops/takenotsuka
+sohonten,GiGO総本店,東京都,東京都豊島区東池袋1-13-6 ロクマルゲートIKEBUKURO,35.729591,139.714813,https://www.gigo.co.jp/shops/sohonten
+jiyugaoka,GiGO自由が丘,東京都,東京都目黒区自由が丘2-10-9,35.608093,139.667664,https://www.gigo.co.jp/shops/jiyugaoka
+funabori,GiGO船堀,東京都,東京都江戸川区船堀1-6-11,35.684799,139.864090,https://www.gigo.co.jp/shops/funabori
+nishikasai,GiGO西葛西,東京都,東京都江戸川区西葛西5-1-14 第一保志ビル,35.665234,139.859344,https://www.gigo.co.jp/shops/nishikasai
+chofu,GiGO調布,東京都,東京都調布市布田4-2-12 シーエフビル1-3F,35.651218,139.544357,https://www.gigo.co.jp/shops/chofu
+akabane,GiGO赤羽,東京都,東京都北区赤羽1-7-9 赤羽第一葉山ビルB1,35.779129,139.722214,https://www.gigo.co.jp/shops/akabane
+akabane-ekimae,GiGO赤羽駅前,東京都,東京都北区赤羽1-2,35.778187,139.721558,https://www.gigo.co.jp/shops/akabane-ekimae
+takadanobaba,GiGO高田馬場,東京都,東京都新宿区高田馬場4-7-5 高田馬場グランド東京,35.713726,139.703766,https://www.gigo.co.jp/shops/takadanobaba
+chigasaki,GiGO BLiX茅ヶ崎,神奈川県,神奈川県茅ヶ崎市新栄町11-8 BLiX茅ヶ崎 3F,35.331505,139.405106,https://www.gigo.co.jp/shops/chigasaki
+bowl-fujisawa-endo,GiGO BOWL湘南とうきゅう,神奈川県,神奈川県藤沢市遠藤滝ノ沢698-10 湘南とうきゅうSC6F,35.371357,139.442123,https://www.gigo.co.jp/shops/bowl-fujisawa-endo
+sagamihara-hashimoto,GiGOアリオ橋本,神奈川県,神奈川県相模原市緑区大山町1-22 アリオ橋本店2F,35.592728,139.348618,https://www.gigo.co.jp/shops/sagamihara-hashimoto
+a-higashi-kanagawa,GiGOイオンスタイル東神奈川,神奈川県,神奈川県横浜市神奈川区富家町1 イオンスタイル東神奈川4F,35.479996,139.634232,https://www.gigo.co.jp/shops/a-higashi-kanagawa
+kobuchi,GiGOイトーヨーカドー古淵,神奈川県,神奈川県相模原市南区古淵3-13-33 イトーヨーカドー3F,35.552319,139.417725,https://www.gigo.co.jp/shops/kobuchi
+yokohama-tsuzuki,GiGOクレーンゲームオアシス都筑,神奈川県,神奈川県横浜市都筑区川和町846-1 プラボ都筑,35.519650,139.553116,https://www.gigo.co.jp/shops/yokohama-tsuzuki
+center-minami,GiGOセンター南,神奈川県,神奈川県横浜市都筑区茅ケ崎中央3-25 aune港北,35.544495,139.574417,https://www.gigo.co.jp/shops/center-minami
+odawara,GiGOダイナシティ小田原,神奈川県,神奈川県小田原市中里296-1,35.281723,139.188553,https://www.gigo.co.jp/shops/odawara
+kawasakidaishi,GiGOホームズ川崎大師,神奈川県,神奈川県川崎市川崎区中瀬3-20-20 ホームズ川崎大師店内2F プレビプレイランドコーナーこころっこ,35.538685,139.733353,https://www.gigo.co.jp/shops/kawasakidaishi
+shinsugita,GiGO新杉田,神奈川県,神奈川県横浜市磯子区杉田1-1-1,35.385727,139.619171,https://www.gigo.co.jp/shops/shinsugita
+hon-atsugi,GiGO本厚木,神奈川県,神奈川県厚木市中町4-15-9,35.439129,139.361786,https://www.gigo.co.jp/shops/hon-atsugi
+honfujisawa,GiGO本藤沢,神奈川県,神奈川県藤沢市本藤沢5-6-8,35.357868,139.467758,https://www.gigo.co.jp/shops/honfujisawa
+yokohama-chukagai,GiGO横浜中華街,神奈川県,神奈川県横浜市中区山下町80-1,35.443638,139.648193,https://www.gigo.co.jp/shops/yokohama-chukagai
+yokohama-nishiguchi,GiGO横浜西口,神奈川県,神奈川県横浜市西区南幸1-10-3 宮本ビル1F,35.464973,139.619843,https://www.gigo.co.jp/shops/yokohama-nishiguchi
+ebina,GiGO海老名,神奈川県,神奈川県海老名市中央1-4-31 海老名プラザビル,35.451405,139.392380,https://www.gigo.co.jp/shops/ebina
+yokohama-kohoku-inter,GiGO港北インター,神奈川県,神奈川県横浜市都筑区東方町321-6,35.519241,139.584396,https://www.gigo.co.jp/shops/yokohama-kohoku-inter
+fujisawa-endo,GiGO湘南とうきゅう,神奈川県,神奈川県藤沢市遠藤698-10 湘南とうきゅう2F,35.384098,139.439621,https://www.gigo.co.jp/shops/fujisawa-endo
+sagamihara,GiGO相模原,神奈川県,神奈川県相模原市中央区中央2-1-5 ムトス内,35.573601,139.371338,https://www.gigo.co.jp/shops/sagamihara
+sagamihara-oyama,GiGO相模原ラクーン,神奈川県,神奈川県相模原市中央区小山1-1-14 相模原ラクーン,35.583500,139.362442,https://www.gigo.co.jp/shops/sagamihara-oyama
+sagamiohno,GiGO相模大野,神奈川県,神奈川県相模原市南区相模大野3-13-2 東和ビル2F,35.532257,139.435928,https://www.gigo.co.jp/shops/sagamiohno
+tsunashima,GiGO綱島,神奈川県,神奈川県横浜市港北区綱島西2-6-29,35.536484,139.633011,https://www.gigo.co.jp/shops/tsunashima
+higashitotsuka,GiGO西武東戸塚SC,神奈川県,神奈川県横浜市戸塚区品濃町537-1 西武東戸塚SC西武館3F,35.430286,139.558716,https://www.gigo.co.jp/shops/higashitotsuka
+higashitotsuka-annex,GiGO西武東戸塚SCアネックス館,神奈川県,神奈川県横浜市戸塚区品濃町536-1 オーロラシティ29街区,35.430305,139.560074,https://www.gigo.co.jp/shops/higashitotsuka-annex
+niigata-kameda,GiGOアピタパワー新潟亀田,新潟県,新潟県新潟市江南区鵜ノ子4-466 アピタパワー新潟亀田店2F,37.871838,139.089905,https://www.gigo.co.jp/shops/niigata-kameda
+a-shibata,GiGOイオンモール新発田,新潟県,新潟県新発田市住吉町5-11-5 イオンモール新発田店2F,37.941456,139.309586,https://www.gigo.co.jp/shops/a-shibata
+nagaoka-senshu,GiGOリバーサイド千秋,新潟県,新潟県長岡市千秋2-278 アピタRIVERSIDESENSHU長岡店2F,37.460854,138.827026,https://www.gigo.co.jp/shops/nagaoka-senshu
+bandaicity,GiGO万代シテイバスセンタービル,新潟県,新潟県新潟市中央区万代1丁目6番1号 万代シテイバスセンタービル2F3F,37.916565,139.056198,https://www.gigo.co.jp/shops/bandaicity
+toyama,GiGOマリエとやま,富山県,富山県富山市桜町1-1-61 マリエとやま,36.700550,137.213669,https://www.gigo.co.jp/shops/toyama
+kanazawa-moroe,GiGOアルプラザ金沢,石川県,石川県金沢市諸江町30-1,36.590523,136.641907,https://www.gigo.co.jp/shops/kanazawa-moroe
+a-kanazawa-shimeno,GiGOクレーンゲームオアシス イオンタウン金沢示野,石川県,石川県金沢市戸板西2丁目1番地,36.579918,136.615311,https://www.gigo.co.jp/shops/a-kanazawa-shimeno
+takefu,GiGO武生,福井県,福井県越前市新町3字13-4,35.901222,136.153076,https://www.gigo.co.jp/shops/takefu
+fukui,GiGO福井,福井県,福井県福井市丸山町1-410,36.074394,136.250488,https://www.gigo.co.jp/shops/fukui
+d-isawa,GiGO MEGAドン・キホーテUNY石和,山梨県,山梨県笛吹市石和町窪中島154 MEGAﾞドン･キホーテUNY石和店2F,35.645821,138.632095,https://www.gigo.co.jp/shops/d-isawa
+fujiq-highland,GiGO富士急ハイランド,山梨県,山梨県富士吉田市新西原5-6-1 富士急ハイランド,35.486103,138.780258,https://www.gigo.co.jp/shops/fujiq-highland
+a-ueda,GiGOイオンスタイル上田,長野県,長野県上田市常田2-12-18,36.392490,138.258423,https://www.gigo.co.jp/shops/a-ueda
+ueda,GiGO上田,長野県,長野県上田市馬飼免1847-1,36.401978,138.248672,https://www.gigo.co.jp/shops/ueda
+okaya,GiGO岡谷,長野県,長野県岡谷市塚間町2-1-21,36.065266,138.052719,https://www.gigo.co.jp/shops/okaya
+toyoshina,GiGO豊科,長野県,長野県安曇野市豊科南穂高1115,36.302013,137.921783,https://www.gigo.co.jp/shops/toyoshina
+gifu-akutami,GiGO Vタウン芥見,岐阜県,岐阜県岐阜市芥見南山2-1-8 Vタウン芥見店内,35.456417,136.850616,https://www.gigo.co.jp/shops/gifu-akutami
+ogaki,GiGOアクアウォーク大垣,岐阜県,岐阜県大垣市林町6-80-21,35.369884,136.617233,https://www.gigo.co.jp/shops/ogaki
+kakamigahara,GiGOアピタ各務原,岐阜県,岐阜県各務原市鵜沼各務原町8-7 アピタ各務原店2F,35.397045,136.906128,https://www.gigo.co.jp/shops/kakamigahara
+d-kani,GiGOドン･キホーテUNY可児,岐阜県,岐阜県可児市中恵土字溝向2120番1 ドン･キホーテUNY可児店内,35.431843,137.065002,https://www.gigo.co.jp/shops/d-kani
+seki,GiGOマーゴ関,岐阜県,岐阜県関市倉知516番地,35.477791,136.900055,https://www.gigo.co.jp/shops/seki
+gifu-mitake,GiGOラスパ御嵩,岐阜県,岐阜県可児郡御嵩町上恵土1052-1 ラスパ御嵩店2F,35.438972,137.076828,https://www.gigo.co.jp/shops/gifu-mitake
+takayama2,GiGOルビットタウン高山,岐阜県,岐阜県高山市岡本町3-18-2 ルビットタウン高山店2F,36.148460,137.246353,https://www.gigo.co.jp/shops/takayama2
+takayama,GiGO高山,岐阜県,岐阜県高山市上岡本町7-7,36.143093,137.243423,https://www.gigo.co.jp/shops/takayama
+shizuoka-shimada,GiGOアピタ島田,静岡県,静岡県島田市宝来町8-2 アピタ島田店2F,34.828915,138.185913,https://www.gigo.co.jp/shops/shizuoka-shimada
+suntomoon-oasis,GiGOサントムーンオアシス,静岡県,静岡県駿東郡清水町伏見52-1 サントムーンオアシス3階,35.109684,138.900238,https://www.gigo.co.jp/shops/suntomoon-oasis
+suntomoon-kakitagawa,GiGOサントムーン柿田川,静岡県,静岡県駿東郡清水町玉川61-2,35.109955,138.905624,https://www.gigo.co.jp/shops/suntomoon-kakitagawa
+shimizu,GiGOベイドリーム清水,静岡県,静岡県静岡市清水区駒越北町8-1 ベイドリーム清水,34.985313,138.501923,https://www.gigo.co.jp/shops/shimizu
+kakegawa,GiGO掛川,静岡県,静岡県掛川市細田248,34.773376,137.984329,https://www.gigo.co.jp/shops/kakegawa
+fukuroi,GiGO袋井,静岡県,静岡県袋井市川井1142-1,34.746384,137.912338,https://www.gigo.co.jp/shops/fukuroi
+shizuoka,GiGO静岡,静岡県,静岡県静岡市葵区七間町4番地,34.974182,138.381577,https://www.gigo.co.jp/shops/shizuoka
+taiyaki-sasashima,GiGOのたい焼きマーケットスクエアささしま,愛知県,愛知県名古屋市中村区平池町4丁目60番地14号,35.161720,136.882553,https://www.gigo.co.jp/shops/taiyaki-sasashima
+anjo-sakurai,GiGOアピタ安城南,愛知県,愛知県安城市桜井町城向二丁目9番地36 アピタ安城南店2F,34.921608,137.091217,https://www.gigo.co.jp/shops/anjo-sakurai
+a-kariya,GiGOイオンタウン刈谷,愛知県,愛知県刈谷市東境町京和1,35.038368,137.027466,https://www.gigo.co.jp/shops/a-kariya
+a-meisei,GiGOイオンタウン名西,愛知県,愛知県名古屋市西区香呑町六丁目49-1,35.204041,136.892487,https://www.gigo.co.jp/shops/a-meisei
+a-kisogawa,GiGOイオンモール木曽川,愛知県,愛知県一宮市木曽川町黒田南八ツヶ池25番1 ダイヤモンドシティ・キリオ3F,35.349159,136.773590,https://www.gigo.co.jp/shops/a-kisogawa
+chiryu,GiGOギャラリエアピタ知立,愛知県,愛知県知立市長篠町大山18-1,34.997875,137.051651,https://www.gigo.co.jp/shops/chiryu
+cafestand-sasashima,GiGOコラボカフェスタンド マーケットスクエアささしま,愛知県,愛知県名古屋市中村区平池町4丁目60番地14号 GiGOマーケットスクエアささしま内,35.161720,136.882553,https://www.gigo.co.jp/shops/cafestand-sasashima
+sasashima,GiGOマーケットスクエアささしま,愛知県,愛知県名古屋市中村区平池町4-60-14 マーケットスクエアささしま1F,35.161720,136.882553,https://www.gigo.co.jp/shops/sasashima
+aichi-konan,GiGOヴィアモール江南,愛知県,愛知県江南市松竹町上野205 VIAMALLアピタ江南西店2F,35.342606,136.855438,https://www.gigo.co.jp/shops/aichi-konan
+kita-okazaki,GiGO北岡崎,愛知県,愛知県岡崎市錦町2番地4,34.973408,137.159790,https://www.gigo.co.jp/shops/kita-okazaki
+anjo,GiGO安城,愛知県,愛知県安城市百石町2-35-13,34.947353,137.072632,https://www.gigo.co.jp/shops/anjo
+bisai,GiGO尾西,愛知県,愛知県一宮市篭屋3丁目9番7号,35.309498,136.771774,https://www.gigo.co.jp/shops/bisai
+okazaki,GiGO岡崎,愛知県,愛知県岡崎市上地3-50-4,34.911594,137.168869,https://www.gigo.co.jp/shops/okazaki
+kasugai,GiGO春日井,愛知県,愛知県春日井市岩野町菅廻間4180,35.268711,136.960602,https://www.gigo.co.jp/shops/kasugai
+tomei-bowl,GiGO東名ボール,愛知県,愛知県瀬戸市西原町2丁目114,35.209000,137.063278,https://www.gigo.co.jp/shops/tomei-bowl
+toyohashi-imure,GiGO豊橋飯村,愛知県,愛知県豊橋市飯村町字西山25-121,34.749901,137.413757,https://www.gigo.co.jp/shops/toyohashi-imure
+toyota,GiGO豊田,愛知県,愛知県豊田市深田町1-65-1,35.067703,137.123779,https://www.gigo.co.jp/shops/toyota
+kanayama,GiGO金山,愛知県,愛知県名古屋市熱田区金山1-19-2,35.142590,136.902313,https://www.gigo.co.jp/shops/kanayama
+nagakute,GiGO長久手,愛知県,愛知県長久手市武蔵塚705,35.171337,137.045013,https://www.gigo.co.jp/shops/nagakute
+d-suzuka,GiGO MEGAドン・キホーテUNY鈴鹿,三重県,三重県鈴鹿市南玉垣町3628 MEGAドン･キホーテUNY鈴鹿店2F,34.853081,136.582291,https://www.gigo.co.jp/shops/d-suzuka
+matsusaka,GiGOアドバンスモール松阪,三重県,三重県松阪市田村町235-1,34.555119,136.512299,https://www.gigo.co.jp/shops/matsusaka
+a-kuwana,GiGOクレーンゲームオアシス イオンモール桑名,三重県,三重県桑名市新西方1-22 イオンモール桑名三番街,35.072212,136.662552,https://www.gigo.co.jp/shops/a-kuwana
+yokkaichi-ekimae,GiGOトナリエ四日市,三重県,三重県四日市市安島1-3-31 トナリエ四日市5F,34.968884,136.616714,https://www.gigo.co.jp/shops/yokkaichi-ekimae
+hisai,GiGO久居,三重県,三重県津市久居明神町字風早2534-1,34.684696,136.462875,https://www.gigo.co.jp/shops/hisai
+ise,GiGO伊勢,三重県,三重県伊勢市中須町666,34.492409,136.678467,https://www.gigo.co.jp/shops/ise
+nabari,GiGO名張,三重県,三重県名張市希央台3番町15,34.623260,136.104126,https://www.gigo.co.jp/shops/nabari
+kuwana,GiGO桑名,三重県,三重県桑名市江場1578 カラオケBANBAN桑名店1F,35.053654,136.683151,https://www.gigo.co.jp/shops/kuwana
+ikuwa,GiGO生桑,三重県,三重県四日市市生桑町川原崎299-1,34.983887,136.600021,https://www.gigo.co.jp/shops/ikuwa
+bowl-minami-hikone,GiGO BOWLビバシティ彦根,滋賀県,滋賀県彦根市竹ケ鼻町43番地1,35.244106,136.250107,https://www.gigo.co.jp/shops/bowl-minami-hikone
+shiga-yokaichi,GiGOアル・プラザ八日市,滋賀県,滋賀県東近江市八日市浜野町3-1,35.114456,136.196274,https://www.gigo.co.jp/shops/shiga-yokaichi
+kusatsu,GiGOエイスクエア草津,滋賀県,滋賀県草津市西渋川1-23-15 A-SQUARSARA内,35.023758,135.960159,https://www.gigo.co.jp/shops/kusatsu
+adogawa,GiGO平和堂あどがわ,滋賀県,滋賀県高島市安曇川町西万木55番地,35.327675,136.027954,https://www.gigo.co.jp/shops/adogawa
+kosei,GiGO甲西,滋賀県,滋賀県湖南市夏見二ツ橋356-1,34.990887,136.094894,https://www.gigo.co.jp/shops/kosei
+bowl-uji,GiGO BOWLアル・プラザ宇治東,京都府,京都府宇治市莵道平町28番地1号,34.902111,135.803040,https://www.gigo.co.jp/shops/bowl-uji
+kyoto-fushimi,GiGO MOMOテラス京都伏見,京都府,京都府京都市伏見区桃山町山ノ下32 京都ショッピングセンタービルAM棟2F,34.937057,135.794800,https://www.gigo.co.jp/shops/kyoto-fushimi
+kyotanabe,GiGOアル・プラザ京田辺,京都府,京都府京田辺市田辺中央5丁目2-1 アルプラザ京田辺3F,34.821999,135.768936,https://www.gigo.co.jp/shops/kyotanabe
+daigo,GiGOアル・プラザ醍醐,京都府,京都府京都市伏見区醍醐高畑町1-37,34.951797,135.810547,https://www.gigo.co.jp/shops/daigo
+cafestand-kawaramachi,GiGOコラボカフェスタンド河原町オーパ,京都府,京都府京都市中京区河原町通四条上ル米屋町385番地 河原町オーパ B1F,35.009998,135.751389,https://www.gigo.co.jp/shops/cafestand-kawaramachi
+shinkyogoku,GiGO京都新京極,京都府,京都府京都市中京区新京極六角下る桜之町441番地2 ARISTO新京極,35.009998,135.751389,https://www.gigo.co.jp/shops/shinkyogoku
+kawaramachi,GiGO河原町オーパ,京都府,京都府京都市中京区河原町通四条上ル米屋町385 河原町オーパ,35.009998,135.751389,https://www.gigo.co.jp/shops/kawaramachi
+kawaramachi-b1f,GiGO河原町オーパB1F,京都府,京都府京都市中京区河原町通四条上ル米屋町385 河原町オーパ,35.009998,135.751389,https://www.gigo.co.jp/shops/kawaramachi-b1f
+arcadecafe-osaka,GiGO Arcade Cafe KITTE大阪,大阪府,大阪府大阪市北区梅田3-2-2 KITTE大阪6F,34.700523,135.494797,https://www.gigo.co.jp/shops/arcadecafe-osaka
+osaka-chayamachi,GiGO NU茶屋町,大阪府,大阪府大阪市北区茶屋町10-12 NU茶屋町4F,34.706814,135.499069,https://www.gigo.co.jp/shops/osaka-chayamachi
+abeno-apollo,GiGOあべのアポロ,大阪府,大阪府大阪市阿倍野区阿倍野筋1-5-31 アポロビル3F,34.646694,135.511368,https://www.gigo.co.jp/shops/abeno-apollo
+abeno-qs,GiGOあべのキューズモール,大阪府,大阪府大阪市阿倍野区阿倍野筋1-6-1,34.646053,135.512772,https://www.gigo.co.jp/shops/abeno-qs
+izumisano,GiGOいこらも～る泉佐野,大阪府,大阪府泉佐野市下瓦屋2-2-77 いこらも～る泉佐野1F,34.421776,135.328781,https://www.gigo.co.jp/shops/izumisano
+kami-shinjo,GiGOかみしんプラザ,大阪府,大阪府大阪市東淀川区大隅1-6-12 かみしんプラザ2F,34.748413,135.541077,https://www.gigo.co.jp/shops/kami-shinjo
+namba-ebisubashi,GiGOなんば戎橋,大阪府,大阪府大阪市中央区難波3-8-22 なんば3丁目Hビル1F,34.665817,135.501175,https://www.gigo.co.jp/shops/namba-ebisubashi
+taiyaki-dotonbori,GiGOのたい焼き大阪道頓堀本店,大阪府,大阪府大阪市中央区道頓堀1-8-22 3F,34.668686,135.501740,https://www.gigo.co.jp/shops/taiyaki-dotonbori
+otori,GiGOアリオ鳳,大阪府,大阪府堺市西区鳳南町3-199-12 アリオ鳳店3F,34.526146,135.456894,https://www.gigo.co.jp/shops/otori
+hirakata-tsuda,GiGOアル・プラザ枚方,大阪府,大阪府枚方市津田元町1丁目4番1号,34.808414,135.702042,https://www.gigo.co.jp/shops/hirakata-tsuda
+ibaraki-kamigori,GiGOアル・プラザ茨木,大阪府,大阪府茨木市上郡2丁目12番地8号,34.838287,135.555832,https://www.gigo.co.jp/shops/ibaraki-kamigori
+korien,GiGOアル・プラザ香里園,大阪府,大阪府寝屋川市日新町5番5号,34.783310,135.622406,https://www.gigo.co.jp/shops/korien
+a-hineno,GiGOイオンモール日根野,大阪府,大阪府泉佐野市日根野2496-1 イオンモール日根野2F,34.393414,135.334000,https://www.gigo.co.jp/shops/a-hineno
+a-kounoike,GiGOイオン鴻池,大阪府,大阪府東大阪市鴻池町1-1-72 イオン鴻池店2F,34.698421,135.602402,https://www.gigo.co.jp/shops/a-kounoike
+tsukuno,GiGOイトーヨーカドー津久野,大阪府,大阪府堺市西区下田町20-1 イトーヨーカドー津久野店2F,34.541790,135.464508,https://www.gigo.co.jp/shops/tsukuno
+neyagawa-neyaminami,GiGOビバモール寝屋川,大阪府,大阪府寝屋川市寝屋南2-22-2,34.766487,135.651672,https://www.gigo.co.jp/shops/neyagawa-neyaminami
+higashiosaka,GiGOフレスポ東大阪,大阪府,大阪府東大阪市稲田新町3-9-64,34.692265,135.591400,https://www.gigo.co.jp/shops/higashiosaka
+kishiwada-haruki,GiGOラパーク岸和田,大阪府,大阪府岸和田市春木若松町21-1 ラパーク岸和田店2F,34.478291,135.392151,https://www.gigo.co.jp/shops/kishiwada-haruki
+imafuku,GiGO今福,大阪府,大阪府大阪市城東区今福東1-9-34,34.700684,135.557495,https://www.gigo.co.jp/shops/imafuku
+izumi,GiGO和泉,大阪府,大阪府和泉市肥子町2丁目4-41,34.486607,135.417770,https://www.gigo.co.jp/shops/izumi
+osaka-ekimae4,GiGO大阪第4ビル,大阪府,大阪府大阪市北区梅田1-11-4 駅前第4ビルB1F,34.699581,135.499298,https://www.gigo.co.jp/shops/osaka-ekimae4
+dotonbori,GiGO大阪道頓堀本店,大阪府,大阪府大阪市中央区道頓堀1-8-22,34.668686,135.501740,https://www.gigo.co.jp/shops/dotonbori
+fuse,GiGO布施,大阪府,大阪府東大阪市長堂1-1-1 ロンモール布施内,34.664043,135.561966,https://www.gigo.co.jp/shops/fuse
+shin-mikuni,GiGO新三国アルゴ７,大阪府,大阪府豊中市神州町1-15 アルゴセブンビル2F,34.739021,135.478485,https://www.gigo.co.jp/shops/shin-mikuni
+higashi-umeda,GiGO東梅田,大阪府,大阪府大阪市北区堂山町9-28,34.703194,135.504150,https://www.gigo.co.jp/shops/higashi-umeda
+hirakata,GiGO枚方,大阪府,大阪府枚方市須山町83-1 サンシャインプラザ枚方内,34.819550,135.675140,https://www.gigo.co.jp/shops/hirakata
+namba-avion,GiGO難波アビオン,大阪府,大阪府大阪市浪速区難波中2-3-15 ＭＭＯビル,34.662827,135.503281,https://www.gigo.co.jp/shops/namba-avion
+amagasaki,GiGOあまがさきキューズモール,兵庫県,兵庫県尼崎市潮江1-3-1 あまがさきキューズモール4F,34.733112,135.431763,https://www.gigo.co.jp/shops/amagasaki
+tsukashin,GiGOつかしん,兵庫県,兵庫県尼崎市塚口本町4-8-1,34.761581,135.417938,https://www.gigo.co.jp/shops/tsukashin
+llp-koshien,GiGOららぽーと甲子園,兵庫県,兵庫県西宮市甲子園8番町1-100 ららぽーと甲子園2F,34.717068,135.362610,https://www.gigo.co.jp/shops/llp-koshien
+kakogawa-befu,GiGOアリオ加古川,兵庫県,兵庫県加古川市別府町緑町2 アリオ加古川店3F,34.728249,134.849670,https://www.gigo.co.jp/shops/kakogawa-befu
+a-himeji,GiGOイオンモール姫路リバーシティー,兵庫県,兵庫県姫路市飾磨区細江2560 イオンモール姫路リバーシティ,34.798260,134.668427,https://www.gigo.co.jp/shops/a-himeji
+a-inagawa,GiGOイオンモール猪名川,兵庫県,兵庫県川辺郡猪名川町白金2-1 イオンモール猪名川3F,34.901764,135.364838,https://www.gigo.co.jp/shops/a-inagawa
+a-awaji,GiGOイオン淡路,兵庫県,兵庫県淡路市志筑新島10-2 イオン淡路,34.426289,134.904694,https://www.gigo.co.jp/shops/a-awaji
+corowa-koshien,GiGOコロワ甲子園,兵庫県,兵庫県西宮市甲子園高潮町3-3 コロワ甲子園,34.723904,135.362381,https://www.gigo.co.jp/shops/corowa-koshien
+maya,GiGOフェニックスプラザ摩耶,兵庫県,兵庫県神戸市灘区味泥町6番1号,34.704102,135.228210,https://www.gigo.co.jp/shops/maya
+sannomiya-kitaguchi,GiGO三宮北口,兵庫県,兵庫県神戸市中央区北長狭通1丁目8-1 コスモビルB1FB2F,34.693008,135.192230,https://www.gigo.co.jp/shops/sannomiya-kitaguchi
+sannomiya-minamiguchi,GiGO三宮南口,兵庫県,兵庫県神戸市中央区三宮町1-7-17 三慶ビル,34.692799,135.193863,https://www.gigo.co.jp/shops/sannomiya-minamiguchi
+himeji-ekimae,GiGO姫路駅前,兵庫県,兵庫県姫路市駅前町254 姫路OSビルB1F,34.828773,134.691101,https://www.gigo.co.jp/shops/himeji-ekimae
+akashi,GiGO明石,兵庫県,兵庫県明石市魚住町清水2464-1,34.719940,134.896606,https://www.gigo.co.jp/shops/akashi
+kobe-umie-south,GiGO神戸umieサウスモール,兵庫県,兵庫県神戸市中央区東川崎1-7-2 ダイヤニッセイビル4F,34.679077,135.181961,https://www.gigo.co.jp/shops/kobe-umie-south
+kobe-umie-mosaic,GiGO神戸umieモザイク,兵庫県,兵庫県神戸市中央区東川崎町1-6-1 神戸ハーバーランドumieMOSAIC,34.679356,135.184692,https://www.gigo.co.jp/shops/kobe-umie-mosaic
+kobe-umie-mosaic-2f,GiGO神戸umieモザイク 2F,兵庫県,兵庫県神戸市中央区東川崎町1-6-1 神戸ハーバーランドumieMOSAIC,34.679356,135.184692,https://www.gigo.co.jp/shops/kobe-umie-mosaic-2f
+yamatokoriyama,GiGOアピタ大和郡山,奈良県,奈良県大和郡山市田中町517 アピタ大和郡山店2F,34.641472,135.769363,https://www.gigo.co.jp/shops/yamatokoriyama
+yonago,GiGO米子,鳥取県,鳥取県米子市両三柳2778-2,35.459457,133.321167,https://www.gigo.co.jp/shops/yonago
+tottori,GiGO鳥取,鳥取県,鳥取県鳥取市安長416,35.511730,134.209671,https://www.gigo.co.jp/shops/tottori
+matsue,GiGO松江,島根県,島根県松江市嫁島町12-15,35.449898,133.047729,https://www.gigo.co.jp/shops/matsue
+a-okayama,GiGOイオンモール岡山,岡山県,岡山県岡山市北区下石井1-2-1,34.662712,133.918900,https://www.gigo.co.jp/shops/a-okayama
+okayama-tsudaka,GiGOエブリイOkanaka津高,岡山県,岡山県岡山市北区横井上83-3 エブリイOkanaka津高店内4F,34.700172,133.902802,https://www.gigo.co.jp/shops/okayama-tsudaka
+cafestand-a-okayama,GiGOコラボカフェスタンド イオンモール岡山,岡山県,岡山県岡山市北区下石井1-2-1,34.662712,133.918900,https://www.gigo.co.jp/shops/cafestand-a-okayama
+tamano,GiGOショッピングモールメルカ,岡山県,岡山県玉野市宇野1-38-1 玉野ショッピングモールメルカ店内3Fプレビプレイランドコーナーこころっこ,34.492622,133.945175,https://www.gigo.co.jp/shops/tamano
+kurashiki-kojima,GiGOトピア天満屋ハピータウン児島,岡山県,岡山県倉敷市児島駅前2-35 天満屋ハピータウン児島店内3Fプレビプレイランドコーナーこころっこ,34.466820,133.804184,https://www.gigo.co.jp/shops/kurashiki-kojima
+takahashi,GiGOポルカ天満屋ハピータウン高梁,岡山県,岡山県高梁市中原町1084-1 ポルカ天満屋ハピータウン内2Fプレビプレイランドコーナーこころっこ,34.784443,133.611755,https://www.gigo.co.jp/shops/takahashi
+kurashiki,GiGO倉敷,岡山県,岡山県倉敷市西中新田八反割535-2,34.582184,133.761642,https://www.gigo.co.jp/shops/kurashiki
+okayama-haraoshima,GiGO天満屋ハピータウン原尾島,岡山県,岡山県岡山市中区原尾島1-6-20 天満屋ハピータウン原尾島店内3Fプレビプレイランドコーナーこころっこ,34.671471,133.946991,https://www.gigo.co.jp/shops/okayama-haraoshima
+okayama-kohoku,GiGO天満屋ハピータウン岡北,岡山県,岡山県岡山市北区中井町2-2-7 天満屋ハピータウン岡北店内3FアミューズメントPLABI,34.679653,133.928375,https://www.gigo.co.jp/shops/okayama-kohoku
+okayama-konan,GiGO天満屋ハピータウン岡南,岡山県,岡山県岡山市南区築港新町1-18-5 天満屋ハピータウン岡南店内3Fプレビプレイランドコーナーこころっこ,34.604645,133.941422,https://www.gigo.co.jp/shops/okayama-konan
+okayama-fujisaki,GiGO岡山藤崎,岡山県,岡山県岡山市中区藤崎599-12,34.608749,133.976868,https://www.gigo.co.jp/shops/okayama-fujisaki
+lect-hiroshima,GiGO LECT広島,広島県,広島県広島市西区扇2丁目1-45 LECT,34.371510,132.407181,https://www.gigo.co.jp/shops/lect-hiroshima
+alpark,GiGOアルパーク北棟,広島県,広島県広島市西区草津南4-7-1 アルパーク北棟2F,34.375664,132.392761,https://www.gigo.co.jp/shops/alpark
+nakasuji,GiGO中筋,広島県,広島県広島市安佐南区中筋4-11-7,34.455173,132.479172,https://www.gigo.co.jp/shops/nakasuji
+onomichi,GiGO尾道,広島県,広島県尾道市新浜1-2-13,34.402485,133.186447,https://www.gigo.co.jp/shops/onomichi
+hiro,GiGO広,広島県,広島県呉市広中町1-9,34.228912,132.629333,https://www.gigo.co.jp/shops/hiro
+hiroshima-hondori,GiGO広島本通,広島県,広島県広島市中区本通9-30 ランドマークビル1F･B1F,34.392559,132.460846,https://www.gigo.co.jp/shops/hiroshima-hondori
+kaita,GiGO海田,広島県,広島県安芸郡海田町南大正町3-35,34.367485,132.533340,https://www.gigo.co.jp/shops/kaita
+fukuyama,GiGO福山,広島県,広島県福山市瀬戸町山北300,34.475124,133.316589,https://www.gigo.co.jp/shops/fukuyama
+a-ogori,GiGOイオンタウン小郡,山口県,山口県山口市小郡前田町3-6,34.087158,131.398254,https://www.gigo.co.jp/shops/a-ogori
+tokushima-minamisuehiro,GiGOスエヒロボウル徳島,徳島県,徳島県徳島市南末広町4-95-2,34.060143,134.573029,https://www.gigo.co.jp/shops/tokushima-minamisuehiro
+a-takamatsu,GiGOイオンモール高松,香川県,香川県高松市香西本町1-1 イオンモール高松2F227-2,34.351009,134.003082,https://www.gigo.co.jp/shops/a-takamatsu
+marugame,GiGOクレーンゲームオアシス丸亀,香川県,香川県丸亀市蓬莱町56-1,34.296501,133.780197,https://www.gigo.co.jp/shops/marugame
+takamatsu,GiGO高松,香川県,香川県高松市勅使町山王535,34.308723,134.016830,https://www.gigo.co.jp/shops/takamatsu
+imabari-umagoe,GiGOそよら今治馬越,愛媛県,愛媛県今治市馬越町4-8-1 イオン今治,34.056435,132.980530,https://www.gigo.co.jp/shops/imabari-umagoe
+matsuyama,GiGO松山,愛媛県,愛媛県松山市枝松5-7-32,33.828682,132.786514,https://www.gigo.co.jp/shops/matsuyama
+kochi-asakurahigashi,GiGOフジグラン高知,高知県,高知県高知市朝倉東町52-15,33.542660,133.498444,https://www.gigo.co.jp/shops/kochi-asakurahigashi
+taiyaki-y-hakata,GiGOのたい焼きヨドバシ博多,福岡県,福岡県福岡市博多区博多駅中央街6-12 ヨドバシ博多4F,33.588547,130.422180,https://www.gigo.co.jp/shops/taiyaki-y-hakata
+iizuka,GiGOゆめタウン飯塚,福岡県,福岡県飯塚市菰田西3-6-1 ゆめタウン飯塚3F,33.631870,130.685364,https://www.gigo.co.jp/shops/iizuka
+cafestand-fukuoka-tenjin,GiGOコラボカフェスタンド福岡天神,福岡県,福岡県福岡市中央区天神２丁目7-6 DADAビル GiGO福岡天神内,33.589725,130.396637,https://www.gigo.co.jp/shops/cafestand-fukuoka-tenjin
+mina-tenjin,GiGOミーナ天神,福岡県,福岡県福岡市中央区天神4-3-8 ミーナ天神7F,33.592609,130.398712,https://www.gigo.co.jp/shops/mina-tenjin
+y-hakata,GiGOヨドバシ博多,福岡県,福岡県福岡市博多区博多駅中央街6-12 ヨドバシ博多,33.588547,130.422180,https://www.gigo.co.jp/shops/y-hakata
+nakama,GiGO中間,福岡県,福岡県中間市蓮花寺3-1-1,33.825840,130.718460,https://www.gigo.co.jp/shops/nakama
+fukuoka-tenjin,GiGO福岡天神,福岡県,福岡県福岡市中央区天神2-7-6 DADAビル,33.589725,130.396637,https://www.gigo.co.jp/shops/fukuoka-tenjin
+takeo,GiGO武雄,佐賀県,佐賀県武雄市武雄町富岡12517-1,33.198792,130.034286,https://www.gigo.co.jp/shops/takeo
+nagasaki,GiGOみらい長崎ココウォーク,長崎県,長崎県長崎市茂里町1-55 みらい長崎ココウォーク,32.762981,129.864777,https://www.gigo.co.jp/shops/nagasaki
+omura,GiGOクレーンゲームオアシス サンスパおおむら,長崎県,長崎県大村市森園町663番3,32.923286,129.936096,https://www.gigo.co.jp/shops/omura
+isahaya,GiGO諫早,長崎県,長崎県諫早市小川町90-1,32.831367,130.055069,https://www.gigo.co.jp/shops/isahaya
+kumamoto,GiGOアミュプラザくまもと,熊本県,熊本県熊本市西区春日3-15-26 アミュプラザくまもと,32.788967,130.688232,https://www.gigo.co.jp/shops/kumamoto
+cafestand-kumamoto,GiGOコラボカフェスタンド アミュプラザくまもと,熊本県,熊本県熊本市西区春日3丁目15番26号 アミュプラザくまもと 6F,32.788967,130.688232,https://www.gigo.co.jp/shops/cafestand-kumamoto
+kumamoto-airport,GiGO阿蘇くまもと空港,熊本県,熊本県上益城群益城町大字小谷1802-2 阿蘇くまもと空港 新旅客ターミナルビル 3F,,,https://www.gigo.co.jp/shops/kumamoto-airport
+a-takajo,GiGOイオン高城,大分県,大分県大分市高城西町28-1 イオン高城店2F,33.241634,131.651596,https://www.gigo.co.jp/shops/a-takajo
+nakatsu,GiGO中津,大分県,大分県中津市沖代町1-2-16,33.591774,131.202332,https://www.gigo.co.jp/shops/nakatsu
+beppu,GiGO別府,大分県,大分県別府市餅ケ浜町161-2,33.293781,131.502274,https://www.gigo.co.jp/shops/beppu
+takajo,GiGO高城,大分県,大分県大分市牧1-161-8,33.239098,131.637192,https://www.gigo.co.jp/shops/takajo
+miyazaki,GiGOアミュプラザみやざき,宮崎県,宮崎県宮崎市老松2丁目2-22 アミュプラザみやざき,31.915041,131.431473,https://www.gigo.co.jp/shops/miyazaki
+kiyotake,GiGOクレーンゲームオアシス ベアーズモール清武,宮崎県,宮崎県宮崎市清武町正手2-37-8 ベアーズモール清武,31.861406,131.387665,https://www.gigo.co.jp/shops/kiyotake
+nobeoka,GiGO延岡,宮崎県,宮崎県延岡市平原町5丁目1492-8,32.548016,131.676727,https://www.gigo.co.jp/shops/nobeoka
+a-aira,GiGOイオンタウン姶良,鹿児島県,鹿児島県姶良市西餠田264-1 イオンタウン姶良店西街区3F,31.731827,130.625916,https://www.gigo.co.jp/shops/a-aira
+chatan,GiGO北谷,沖縄県,沖縄県中頭郡北谷町美浜9-8,26.315735,127.754196,https://www.gigo.co.jp/shops/chatan
+okinawa-ashibinaa,GiGO沖縄アウトレットモールあしびなー,沖縄県,沖縄県豊見城市豊崎1-188 沖縄アウトレットモールあしびなー2F,26.158119,127.655182,https://www.gigo.co.jp/shops/okinawa-ashibinaa
+naha-kokusaidori,GiGO那覇国際通り,沖縄県,沖縄県那覇市久茂地3-3-20 Mビル那覇国際通りI,26.214323,127.682121,https://www.gigo.co.jp/shops/naha-kokusaidori
