@@ -1,28 +1,65 @@
-name: Send GiGO rain ranking to Discord
+name: Send daily GiGO rain forecast to Discord
 
 on:
   schedule:
-    - cron: '17 21 * * *'
-      timezone: 'Asia/Tokyo'
+    - cron: '35 8 * * *'
   workflow_dispatch:
+    inputs:
+      forecast_source:
+        description: 'both / jma_weekly / open_meteo_single_run'
+        required: true
+        default: 'both'
+        type: choice
+        options:
+          - both
+          - jma_weekly
+          - open_meteo_single_run
+      forecast_start_date:
+        description: '予報開始日。例: 2026-06-09。空欄なら実行日のJST日付。'
+        required: false
+        default: ''
+        type: string
+      open_meteo_run:
+        description: 'Open-Meteo Single RunsのUTC run。例: 2026-06-07T00:00。空欄なら予報開始日以前の直近日曜00UTC。'
+        required: false
+        default: ''
+        type: string
+      open_meteo_model:
+        description: 'Open-Meteoのmodels値。既定はjma_gsm。'
+        required: true
+        default: 'jma_gsm'
+        type: string
+      top_n_per_day:
+        description: '各日でDiscordに表示する上位店舗数。'
+        required: true
+        default: '10'
+        type: string
+
+permissions:
+  contents: read
 
 jobs:
-  notify:
+  notify-weekly:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     env:
       DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
       GIGO_STORES_CSV: data/gigo_stores.csv
-      TARGET_DAYS_AHEAD: '1'
-      MORNING_START_HOUR: '6'
-      MORNING_END_HOUR: '12'
+      FORECAST_SOURCE: ${{ github.event.inputs.forecast_source || 'both' }}
+      FORECAST_START_DATE: ${{ github.event.inputs.forecast_start_date || '' }}
+      WEEK_DAYS: '7'
       MIN_POP_PERCENT: '0'
-      TOP_N: '10'
+      TOP_N_PER_DAY: ${{ github.event.inputs.top_n_per_day || '10' }}
       OPEN_METEO_BATCH_SIZE: '50'
+      OPEN_METEO_RUN: ${{ github.event.inputs.open_meteo_run || '' }}
+      OPEN_METEO_RUN_HOUR_UTC: '0'
+      OPEN_METEO_MODEL: ${{ github.event.inputs.open_meteo_model || 'jma_gsm' }}
       TZ: Asia/Tokyo
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Set up uv
         uses: astral-sh/setup-uv@v6
@@ -33,4 +70,4 @@ jobs:
         run: uv sync --locked --no-dev
 
       - name: Send Discord message
-        run: uv run --no-sync python -m scripts.gigo_rain_discord notify
+        run: uv run --no-sync python -m scripts.gigo_rain_discord notify-weekly

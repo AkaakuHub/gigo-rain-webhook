@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from datetime import date
 
 
 @dataclass(frozen=True)
@@ -29,3 +30,12 @@ class Store:
 class RainResult:
     store: Store
     probability: int
+
+
+@dataclass(frozen=True)
+class DailyRainResult:
+    store: Store
+    target_date: date
+    probability: int
+    source: str
+    precipitation_mm: float | None = None
