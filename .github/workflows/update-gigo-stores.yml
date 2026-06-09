@@ -1,0 +1,77 @@
+name: Update static GiGO store CSV
+
+on:
+  workflow_dispatch:
+    inputs:
+      store_name_regex:
+        description: "CSVに保存する店舗名の正規表現。GiGO名義だけなら ^GiGO、公式掲載全件なら .*"
+        required: true
+        default: '^GiGO'
+        type: string
+      force_geocode:
+        description: "既存座標があっても住所から座標を取り直す"
+        required: true
+        default: false
+        type: boolean
+      allow_missing_coordinates:
+        description: "座標取得に失敗した店舗があってもCSVを書き込む"
+        required: true
+        default: false
+        type: boolean
+      commit_changes:
+        description: "変更があればdata/gigo_stores.csvをコミットする"
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      TZ: Asia/Tokyo
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Update CSV
+        env:
+          STORE_NAME_REGEX: ${{ inputs.store_name_regex }}
+          FORCE_GEOCODE: ${{ inputs.force_geocode }}
+          ALLOW_MISSING_COORDINATES: ${{ inputs.allow_missing_coordinates }}
+        run: |
+          args=(update-stores --output data/gigo_stores.csv --store-name-regex "$STORE_NAME_REGEX")
+          if [ "$FORCE_GEOCODE" = "true" ]; then
+            args+=(--force-geocode)
+          fi
+          if [ "$ALLOW_MISSING_COORDINATES" = "true" ]; then
+            args+=(--allow-missing-coordinates)
+          fi
+          python scripts/gigo_rain_discord.py "${args[@]}"
+
+      - name: Commit CSV
+        if: ${{ inputs.commit_changes }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/gigo_stores.csv
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Update static GiGO store CSV"
+            git push
+          fi
