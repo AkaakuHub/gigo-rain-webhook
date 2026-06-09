@@ -12,6 +12,7 @@ import requests
 from scripts.discord_message import build_message_lines, split_discord_messages
 from scripts.geocoding import attach_coordinates, write_geocode_cache
 from scripts.gigo_models import RainResult, Store, StoreRecord
+from scripts.gigo_rain_discord import env_optional_int
 from scripts.store_repository import load_stores
 
 
@@ -65,6 +66,10 @@ class NotifyMessageTest(unittest.TestCase):
                 "GiGO府中/東京都 20%",
             ],
         )
+
+    def test_top_n_default_is_ten_when_env_is_empty(self) -> None:
+        with patch.dict("os.environ", {"TOP_N": ""}):
+            self.assertEqual(env_optional_int("TOP_N", 10), 10)
 
 
 class StoreCoordinateTest(unittest.TestCase):

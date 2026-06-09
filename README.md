@@ -57,7 +57,7 @@ uv.lock
 | `MORNING_START_HOUR` | 朝の判定開始時刻。JSTの時です。 | `6` |
 | `MORNING_END_HOUR` | 朝の判定終了時刻。JSTの時です。この時刻は含めません。 | `12` |
 | `MIN_POP_PERCENT` | Discordへ載せる最低降水確率です。全件出すなら0です。 | `0` |
-| `TOP_N` | 上位N件だけ送る場合に指定します。空なら全件です。 | 空 |
+| `TOP_N` | 上位N件だけ送る場合に指定します。 | `10` |
 | `OPEN_METEO_BATCH_SIZE` | Open-Meteoへまとめて問い合わせる店舗数です。 | `50` |
 | `STORE_NAME_REGEX` | CSVへ保存する店舗名の正規表現です。 | `^GiGO` |
 

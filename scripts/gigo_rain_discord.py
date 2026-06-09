@@ -29,10 +29,10 @@ def env_int(name: str, default: int) -> int:
         raise ValueError(f"{name} must be an integer: {raw!r}") from exc
 
 
-def env_optional_int(name: str) -> int | None:
+def env_optional_int(name: str, default: int | None = None) -> int | None:
     raw = os.getenv(name)
     if raw is None or raw.strip() == "":
-        return None
+        return default
     try:
         return int(raw)
     except ValueError as exc:
@@ -72,7 +72,7 @@ def notify(args: argparse.Namespace) -> int:
     morning_start_hour = args.morning_start_hour if args.morning_start_hour is not None else env_int("MORNING_START_HOUR", 6)
     morning_end_hour = args.morning_end_hour if args.morning_end_hour is not None else env_int("MORNING_END_HOUR", 12)
     min_probability = args.min_probability if args.min_probability is not None else env_int("MIN_POP_PERCENT", 0)
-    top_n = args.top_n if args.top_n is not None else env_optional_int("TOP_N")
+    top_n = args.top_n if args.top_n is not None else env_optional_int("TOP_N", 10)
     batch_size = args.batch_size if args.batch_size is not None else env_int("OPEN_METEO_BATCH_SIZE", 50)
     target = datetime.now(ZoneInfo("Asia/Tokyo")).date() + timedelta(days=target_days_ahead)
     stores = load_stores(csv_path)

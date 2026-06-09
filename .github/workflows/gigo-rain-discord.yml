@@ -17,7 +17,7 @@ jobs:
       MORNING_START_HOUR: '6'
       MORNING_END_HOUR: '12'
       MIN_POP_PERCENT: '0'
-      TOP_N: ''
+      TOP_N: '10'
       OPEN_METEO_BATCH_SIZE: '50'
       TZ: Asia/Tokyo
     steps:
