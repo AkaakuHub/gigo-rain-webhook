@@ -61,12 +61,16 @@ def load_stores(csv_path: str | Path) -> list[Store]:
         for row_number, row in enumerate(reader, start=2):
             name = (row.get("name") or "").strip()
             pref = (row.get("prefecture") or "").strip()
+            address = (row.get("address") or "").strip()
+            source_url = (row.get("source_url") or "").strip()
             lat_raw = (row.get("latitude") or "").strip()
             lon_raw = (row.get("longitude") or "").strip()
             if not name and not pref and not lat_raw and not lon_raw:
                 continue
-            if not name or not pref or not lat_raw or not lon_raw:
+            if not name or not pref:
                 raise ValueError(f"Store CSV row {row_number} has blank required values: {row}")
+            if not lat_raw or not lon_raw:
+                continue
             try:
                 lat = float(lat_raw)
                 lon = float(lon_raw)
@@ -79,10 +83,10 @@ def load_stores(csv_path: str | Path) -> list[Store]:
                     store_id=(row.get("store_id") or "").strip(),
                     name=name,
                     prefecture=pref,
-                    address=(row.get("address") or "").strip(),
+                    address=address,
                     latitude=lat,
                     longitude=lon,
-                    source_url=(row.get("source_url") or "").strip(),
+                    source_url=source_url,
                 )
             )
     if not stores:

@@ -12,6 +12,7 @@ import requests
 from scripts.discord_message import build_message_lines, split_discord_messages
 from scripts.geocoding import attach_coordinates, write_geocode_cache
 from scripts.gigo_models import RainResult, Store, StoreRecord
+from scripts.store_repository import load_stores
 
 
 def store(name: str, prefecture: str = "東京都") -> Store:
@@ -94,6 +95,24 @@ class StoreCoordinateTest(unittest.TestCase):
             geocode_address.assert_not_called()
             self.assertEqual(records[0].latitude, 35.651)
             self.assertEqual(records[0].longitude, 139.544)
+
+    def test_load_stores_skips_rows_without_coordinates(self) -> None:
+        with TemporaryDirectory() as temp_dir:
+            csv_path = Path(temp_dir) / "stores.csv"
+            csv_path.write_text(
+                "\n".join(
+                    [
+                        "store_id,name,prefecture,address,latitude,longitude,source_url",
+                        "missing,GiGO水沢,岩手県,岩手県奥州市水沢区佐倉河鎧田4-1,,,https://www.gigo.co.jp/shops/mizusawa",
+                        "chofu,GiGO調布,東京都,東京都調布市小島町1-1-1,35.651000,139.544000,https://www.gigo.co.jp/shops/chofu",
+                    ]
+                ),
+                encoding="utf-8",
+            )
+
+            stores = load_stores(csv_path)
+
+            self.assertEqual([store.name for store in stores], ["GiGO調布"])
 
 
 if __name__ == "__main__":
