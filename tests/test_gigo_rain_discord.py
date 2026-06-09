@@ -9,15 +9,9 @@ from unittest.mock import patch
 
 import requests
 
-from scripts.gigo_rain_discord import (
-    RainResult,
-    Store,
-    StoreRecord,
-    attach_coordinates,
-    build_message_lines,
-    split_discord_messages,
-    write_geocode_cache,
-)
+from scripts.discord_message import build_message_lines, split_discord_messages
+from scripts.geocoding import attach_coordinates, write_geocode_cache
+from scripts.gigo_models import RainResult, Store, StoreRecord
 
 
 def store(name: str, prefecture: str = "東京都") -> Store:
@@ -86,7 +80,7 @@ class StoreCoordinateTest(unittest.TestCase):
                 source_url="https://www.gigo.co.jp/shops/chofu",
             )
 
-            with patch("scripts.gigo_rain_discord.geocode_address") as geocode_address, redirect_stdout(StringIO()):
+            with patch("scripts.geocoding.geocode_address") as geocode_address, redirect_stdout(StringIO()):
                 records = attach_coordinates(
                     requests.Session(),
                     [record],

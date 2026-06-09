@@ -33,4 +33,4 @@ jobs:
         run: uv sync --locked --no-dev
 
       - name: Send Discord message
-        run: uv run --no-sync scripts/gigo_rain_discord.py notify
+        run: uv run --no-sync python -m scripts.gigo_rain_discord notify

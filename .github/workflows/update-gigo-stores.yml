@@ -68,7 +68,7 @@ jobs:
           if [ "$ALLOW_MISSING_COORDINATES" = "true" ]; then
             args+=(--allow-missing-coordinates)
           fi
-          uv run --no-sync scripts/gigo_rain_discord.py "${args[@]}" --geocode-cache .cache/gigo/geocodes.csv
+          uv run --no-sync python -m scripts.gigo_rain_discord "${args[@]}" --geocode-cache .cache/gigo/geocodes.csv
 
       - name: Commit CSV
         if: ${{ inputs.commit_changes }}

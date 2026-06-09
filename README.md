@@ -65,8 +65,8 @@ uv.lock
 
 ```bash
 uv sync
-uv run scripts/gigo_rain_discord.py update-stores --output data/gigo_stores.csv
-DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/..." uv run scripts/gigo_rain_discord.py notify
+uv run python -m scripts.gigo_rain_discord update-stores --output data/gigo_stores.csv
+DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/..." uv run python -m scripts.gigo_rain_discord notify
 ```
 
 ## 注意点
