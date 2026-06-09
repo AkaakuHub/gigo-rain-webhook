@@ -19,7 +19,8 @@ Discord webhookのAPI仕様上、HTTPリクエストはPOSTで送り、本文は
 .github/workflows/update-gigo-stores.yml    # 手動の店舗CSV更新。初回と店舗追加時だけ使う
 scripts/gigo_rain_discord.py                # 店舗CSV更新、天気取得、Discord送信
 data/gigo_stores.csv                        # 静的店舗CSV。初回更新Actionで埋める
-requirements.txt
+pyproject.toml
+uv.lock
 ```
 
 ## 初回設定
@@ -42,7 +43,7 @@ requirements.txt
 
 `Update static GiGO store CSV` は手動実行だけです。
 
-このActionはGiGO公式店舗検索を47都道府県分読み、公式ページの検索結果件数と取得件数が一致しない場合は失敗します。住所から座標を取得し、`data/gigo_stores.csv` を更新します。既存CSVに同じ店舗IDと同じ住所の座標がある場合は、座標取得を再実行せずに再利用します。
+このActionはGiGO公式店舗検索を47都道府県分読み、公式ページの検索結果件数と取得件数が一致しない場合は失敗します。住所から座標を取得し、`data/gigo_stores.csv` を更新します。既存CSVに同じ店舗IDと同じ住所の座標がある場合、またはGitHub Actionsの住所キャッシュに同じ住所の座標がある場合は、座標取得を再実行せずに再利用します。
 
 手動実行時の `store_name_regex` は既定で `^GiGO` です。GiGO公式店舗検索に載っている全ブランドをCSVへ入れる場合は `.*` を指定します。
 
@@ -63,9 +64,9 @@ requirements.txt
 ## ローカル実行
 
 ```bash
-python -m pip install -r requirements.txt
-python scripts/gigo_rain_discord.py update-stores --output data/gigo_stores.csv
-DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/..." python scripts/gigo_rain_discord.py notify
+uv sync
+uv run scripts/gigo_rain_discord.py update-stores --output data/gigo_stores.csv
+DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/..." uv run scripts/gigo_rain_discord.py notify
 ```
 
 ## 注意点

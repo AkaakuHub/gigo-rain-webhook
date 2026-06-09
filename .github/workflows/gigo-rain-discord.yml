@@ -24,14 +24,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
         with:
-          python-version: '3.12'
-          cache: 'pip'
+          enable-cache: true
 
       - name: Install dependencies
-        run: python -m pip install -r requirements.txt
+        run: uv sync --locked --no-dev
 
       - name: Send Discord message
-        run: python scripts/gigo_rain_discord.py notify
+        run: uv run --no-sync scripts/gigo_rain_discord.py notify

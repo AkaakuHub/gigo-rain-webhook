@@ -39,14 +39,21 @@ jobs:
         with:
           persist-credentials: true
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
         with:
-          python-version: '3.12'
-          cache: 'pip'
+          enable-cache: true
 
       - name: Install dependencies
-        run: python -m pip install -r requirements.txt
+        run: uv sync --locked --no-dev
+
+      - name: Restore geocode cache
+        uses: actions/cache@v4
+        with:
+          path: .cache/gigo/geocodes.csv
+          key: gigo-geocodes-${{ github.run_id }}
+          restore-keys: |
+            gigo-geocodes-
 
       - name: Update CSV
         env:
@@ -61,7 +68,7 @@ jobs:
           if [ "$ALLOW_MISSING_COORDINATES" = "true" ]; then
             args+=(--allow-missing-coordinates)
           fi
-          python scripts/gigo_rain_discord.py "${args[@]}"
+          uv run --no-sync scripts/gigo_rain_discord.py "${args[@]}" --geocode-cache .cache/gigo/geocodes.csv
 
       - name: Commit CSV
         if: ${{ inputs.commit_changes }}

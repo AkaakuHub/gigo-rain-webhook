@@ -24,6 +24,7 @@ SHOPS_URL = f"{BASE_URL}/shops"
 GSI_ADDRESS_SEARCH_URL = "https://msearch.gsi.go.jp/address-search/AddressSearch"
 OPEN_METEO_FORECAST_URL = "https://api.open-meteo.com/v1/forecast"
 CSV_FIELDS = ["store_id", "name", "prefecture", "address", "latitude", "longitude", "source_url"]
+GEOCODE_CACHE_FIELDS = ["address", "latitude", "longitude"]
 DISCORD_CONTENT_LIMIT = 2000
 DEFAULT_MESSAGE_LIMIT = 1900
 
@@ -229,6 +230,36 @@ def existing_coordinates(csv_path: Path) -> dict[str, tuple[str, float, float]]:
     return result
 
 
+def load_geocode_cache(cache_path: Path | None) -> dict[str, tuple[float, float]]:
+    if cache_path is None or not cache_path.exists():
+        return {}
+    result: dict[str, tuple[float, float]] = {}
+    with cache_path.open("r", encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            address = (row.get("address") or "").strip()
+            lat_raw = (row.get("latitude") or "").strip()
+            lon_raw = (row.get("longitude") or "").strip()
+            if not address or not lat_raw or not lon_raw:
+                continue
+            try:
+                result[address] = (float(lat_raw), float(lon_raw))
+            except ValueError:
+                continue
+    return result
+
+
+def write_geocode_cache(cache_path: Path | None, cache: dict[str, tuple[float, float]]) -> None:
+    if cache_path is None:
+        return
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    with cache_path.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=GEOCODE_CACHE_FIELDS)
+        writer.writeheader()
+        for address, (latitude, longitude) in sorted(cache.items()):
+            writer.writerow({"address": address, "latitude": f"{latitude:.6f}", "longitude": f"{longitude:.6f}"})
+
+
 def geocode_candidates(address: str) -> list[str]:
     candidates: list[str] = []
 
@@ -280,25 +311,41 @@ def attach_coordinates(
     records: Iterable[StoreRecord],
     *,
     current_csv: Path,
+    geocode_cache_path: Path | None,
     force_geocode: bool,
     allow_missing_coordinates: bool,
     sleep_seconds: float,
 ) -> list[StoreRecord]:
     current = existing_coordinates(current_csv)
+    geocode_cache = load_geocode_cache(geocode_cache_path)
     output: list[StoreRecord] = []
     missing: list[StoreRecord] = []
-    for record in records:
+    records = list(records)
+    reused = 0
+    geocoded = 0
+    for index, record in enumerate(records, start=1):
         cached = current.get(record.store_id)
         if cached and not force_geocode and cached[0] == record.address:
             output.append(replace(record, latitude=cached[1], longitude=cached[2]))
+            reused += 1
             continue
+        cached_coords = geocode_cache.get(record.address)
+        if cached_coords and not force_geocode:
+            output.append(replace(record, latitude=cached_coords[0], longitude=cached_coords[1]))
+            reused += 1
+            continue
+        print(f"Geocoding {index}/{len(records)}: {record.name}", flush=True)
         coords = geocode_address(session, record.address)
         if coords is None:
             missing.append(record)
             output.append(record)
         else:
+            geocode_cache[record.address] = coords
             output.append(replace(record, latitude=coords[0], longitude=coords[1]))
+            geocoded += 1
         time.sleep(sleep_seconds)
+    write_geocode_cache(geocode_cache_path, geocode_cache)
+    print(f"Coordinate cache reused: {reused}, geocoded: {geocoded}, missing: {len(missing)}", flush=True)
     if missing and not allow_missing_coordinates:
         details = "\n".join(f"- {r.name} / {r.prefecture} / {r.address}" for r in missing[:50])
         if len(missing) > 50:
@@ -329,6 +376,7 @@ def write_csv(records: list[StoreRecord], output_path: Path) -> None:
 
 def update_stores(args: argparse.Namespace) -> int:
     output_path = Path(args.output)
+    geocode_cache_path = Path(args.geocode_cache) if args.geocode_cache else None
     store_name_pattern = re.compile(args.store_name_regex)
     session = requests.Session()
     print(f"Fetching official GiGO shop listings at {datetime.now().isoformat(timespec='seconds')}", flush=True)
@@ -342,6 +390,7 @@ def update_stores(args: argparse.Namespace) -> int:
         session,
         filtered,
         current_csv=output_path,
+        geocode_cache_path=geocode_cache_path,
         force_geocode=args.force_geocode,
         allow_missing_coordinates=args.allow_missing_coordinates,
         sleep_seconds=args.sleep_seconds,
@@ -586,6 +635,7 @@ def build_parser() -> argparse.ArgumentParser:
     update.add_argument("--store-name-regex", default=os.getenv("STORE_NAME_REGEX", r"^GiGO"))
     update.add_argument("--force-geocode", action="store_true")
     update.add_argument("--allow-missing-coordinates", action="store_true")
+    update.add_argument("--geocode-cache", default=os.getenv("GEOCODE_CACHE", ""))
     update.add_argument("--max-pages", type=int, default=20)
     update.add_argument("--sleep-seconds", type=float, default=0.25)
     update.set_defaults(func=update_stores)
