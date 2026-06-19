@@ -26,6 +26,7 @@ GiGO町田/東京都 30% / 0.5mm
 scripts/gigo_rain_discord.py                # CLI入口
 scripts/weather.py                          # Open-Meteo Forecast / Single Runs
 scripts/jma_weekly.py                       # 気象庁府県週間天気予報JSONの取得と抽出
+scripts/wn_prefecture.py                    # Weathernews oneboxの県庁所在地代表予報の取得と抽出
 data/gigo_stores.csv                        # 静的店舗CSV
 ```
 
@@ -38,15 +39,19 @@ data/gigo_stores.csv                        # 静的店舗CSV
 
 ## 予報ソース
 
-`forecast_source` で次の3つを選べます。
+`forecast_source` で次を選べます。
 
 ```text
+all
 both
 jma_weekly
 open_meteo_single_run
+weathernews_prefecture
 ```
 
-`both` は、気象庁府県週間天気予報方式とOpen-Meteo Single Runs方式の両方を送ります。
+`all` は、気象庁府県週間天気予報方式、Open-Meteo Single Runs方式、Weathernews県庁所在地代表方式の3つを送ります。
+
+`both` は後方互換用の指定で、気象庁府県週間天気予報方式とOpen-Meteo Single Runs方式の2つを送ります。
 
 ### jma_weekly
 
@@ -68,11 +73,19 @@ open_meteo_run = 2026-06-07T00:00
 open_meteo_model = jma_gsm
 ```
 
+### weathernews_prefecture
+
+Weathernewsのonebox地点検索で各都道府県の県庁所在地を代表地点として検索し、該当するWeathernews oneboxページの週間予報HTMLから降水確率を抽出します。
+
+Weathernews oneboxは地点単位の予報です。このリポジトリでは、都道府県単位の比較用に、東京都は東京都千代田区、大阪府は大阪市、福岡県は福岡市のように、各都道府県の県庁所在地を代表地点として扱います。
+
+この方式はWeathernewsの公式開発者APIではなく、公開ページHTMLからの抽出です。Weathernews側のHTML構造が変わると、抽出に失敗する可能性があります。抽出できない日付は `0%` として扱います。
+
 ## 毎日実行で行うこと
 
 1. `data/gigo_stores.csv` を読む。
 2. 選択した予報ソースで、実行日から7日分の予報を取得する。
-3. 各日ごとに、気象庁方式は降水確率順、Open-Meteo方式は降水確率と日降水量順で店舗を並べる。
+3. 各日ごとに、気象庁方式とWeathernews方式は降水確率順、Open-Meteo方式は降水確率と日降水量順で店舗を並べる。
 4. Discord webhookへ通常の文字列として送信する。
 
 ## 環境変数
@@ -81,7 +94,7 @@ open_meteo_model = jma_gsm
 |---|---|---|
 | `DISCORD_WEBHOOK_URL` | Discord webhook URL。GitHub Secretsに登録します。 | なし |
 | `GIGO_STORES_CSV` | 静的店舗CSVのパス | `data/gigo_stores.csv` |
-| `FORECAST_SOURCE` | `both` / `jma_weekly` / `open_meteo_single_run` | `both` |
+| `FORECAST_SOURCE` | `all` / `both` / `jma_weekly` / `open_meteo_single_run` / `weathernews_prefecture` | `all` |
 | `FORECAST_START_DATE` | 予報開始日。例: `2026-06-09` | 実行日のJST日付 |
 | `WEEK_DAYS` | 何日分送るか | `7` |
 | `MIN_POP_PERCENT` | Discordへ載せる最低降水確率 | `0` |
@@ -97,8 +110,9 @@ open_meteo_model = jma_gsm
 ```bash
 uv sync
 uv run python -m scripts.gigo_rain_discord update-stores --output data/gigo_stores.csv
+uv run python -m scripts.gigo_rain_discord notify-weekly --source weathernews_prefecture --forecast-start-date 2026-06-09 --top-n-per-day 10 --dry-run
 uv run python -m scripts.gigo_rain_discord notify-weekly --source open_meteo_single_run --forecast-start-date 2026-06-09 --open-meteo-run 2026-06-07T00:00 --top-n-per-day 10 --dry-run
-DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/..." uv run python -m scripts.gigo_rain_discord notify-weekly --source both --forecast-start-date 2026-06-09 --open-meteo-run 2026-06-07T00:00
+DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/..." uv run python -m scripts.gigo_rain_discord notify-weekly --source all --forecast-start-date 2026-06-09 --open-meteo-run 2026-06-07T00:00
 ```
 
 ## 注意点
@@ -106,3 +120,5 @@ DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/..." uv run python -m scri
 Discordの通常メッセージ本文は2000文字までなので、長い出力は複数メッセージに分割します。
 
 `jma_weekly` は、実行時点で気象庁が公開している最新の週間予報を送信する方式です。過去の日曜日に実行していなかった場合、その時点の気象庁公式予報をGitHub Actionsだけで後から復元することはできません。後から日曜時点を再現する用途は、Open-Meteo Single Runsの `open_meteo_run` 指定を使います。
+
+`weathernews_prefecture` は、Weathernews oneboxの現在の公開HTMLから取得する方式です。過去時点のWeathernews予報をGitHub Actionsだけで後から復元することはできません。
