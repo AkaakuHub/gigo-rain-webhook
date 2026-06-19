@@ -43,15 +43,12 @@ data/gigo_stores.csv                        # 静的店舗CSV
 
 ```text
 all
-both
 jma_weekly
 open_meteo_single_run
 weathernews_prefecture
 ```
 
 `all` は、気象庁府県週間天気予報方式、Open-Meteo Single Runs方式、Weathernews県庁所在地代表方式の3つを送ります。
-
-`both` は後方互換用の指定で、気象庁府県週間天気予報方式とOpen-Meteo Single Runs方式の2つを送ります。
 
 ### jma_weekly
 
@@ -94,7 +91,7 @@ Weathernews oneboxは地点単位の予報です。このリポジトリでは�
 |---|---|---|
 | `DISCORD_WEBHOOK_URL` | Discord webhook URL。GitHub Secretsに登録します。 | なし |
 | `GIGO_STORES_CSV` | 静的店舗CSVのパス | `data/gigo_stores.csv` |
-| `FORECAST_SOURCE` | `all` / `both` / `jma_weekly` / `open_meteo_single_run` / `weathernews_prefecture` | `all` |
+| `FORECAST_SOURCE` | `all` / `jma_weekly` / `open_meteo_single_run` / `weathernews_prefecture` | `all` |
 | `FORECAST_START_DATE` | 予報開始日。例: `2026-06-09` | 実行日のJST日付 |
 | `WEEK_DAYS` | 何日分送るか | `7` |
 | `MIN_POP_PERCENT` | Discordへ載せる最低降水確率 | `0` |
