@@ -6,14 +6,16 @@ on:
   workflow_dispatch:
     inputs:
       forecast_source:
-        description: 'both / jma_weekly / open_meteo_single_run'
+        description: 'all / both / jma_weekly / open_meteo_single_run / weathernews_prefecture'
         required: true
-        default: 'both'
+        default: 'all'
         type: choice
         options:
+          - all
           - both
           - jma_weekly
           - open_meteo_single_run
+          - weathernews_prefecture
       forecast_start_date:
         description: '予報開始日。例: 2026-06-09。空欄なら実行日のJST日付。'
         required: false
@@ -45,7 +47,7 @@ jobs:
     env:
       DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
       GIGO_STORES_CSV: data/gigo_stores.csv
-      FORECAST_SOURCE: ${{ github.event.inputs.forecast_source || 'both' }}
+      FORECAST_SOURCE: ${{ github.event.inputs.forecast_source || 'all' }}
       FORECAST_START_DATE: ${{ github.event.inputs.forecast_start_date || '' }}
       WEEK_DAYS: '7'
       MIN_POP_PERCENT: '0'
