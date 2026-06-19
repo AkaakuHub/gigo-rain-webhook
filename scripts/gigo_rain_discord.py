@@ -115,15 +115,13 @@ def _source_values(raw: str) -> list[str]:
     value = (raw or "all").strip().lower().replace("-", "_")
     if value in {"all", "all_sources"}:
         return ["jma_weekly", "open_meteo_single_run", "weathernews_prefecture"]
-    if value == "both":
-        return ["jma_weekly", "open_meteo_single_run"]
     if value in {"jma", "jma_weekly"}:
         return ["jma_weekly"]
     if value in {"open_meteo", "open_meteo_single_run", "single_run"}:
         return ["open_meteo_single_run"]
     if value in {"weathernews", "weathernews_prefecture"}:
         return ["weathernews_prefecture"]
-    raise ValueError("FORECAST_SOURCE must be all, both, jma_weekly, open_meteo_single_run, or weathernews_prefecture")
+    raise ValueError("FORECAST_SOURCE must be all, jma_weekly, open_meteo_single_run, or weathernews_prefecture")
 
 
 def notify_weekly(args: argparse.Namespace) -> int:
@@ -213,7 +211,7 @@ def build_parser() -> argparse.ArgumentParser:
     weekly.add_argument("--discord-webhook-url", default=None)
     weekly.add_argument(
         "--source",
-        choices=["all", "both", "jma_weekly", "open_meteo_single_run", "weathernews_prefecture", "weathernews"],
+        choices=["all", "jma_weekly", "open_meteo_single_run", "weathernews_prefecture", "weathernews"],
         default=None,
     )
     weekly.add_argument("--forecast-start-date", default=None, help="Forecast start date in YYYY-MM-DD. Empty means today JST.")
