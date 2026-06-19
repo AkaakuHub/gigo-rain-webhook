@@ -6,13 +6,12 @@ on:
   workflow_dispatch:
     inputs:
       forecast_source:
-        description: 'all / both / jma_weekly / open_meteo_single_run / weathernews_prefecture'
+        description: 'all / jma_weekly / open_meteo_single_run / weathernews_prefecture'
         required: true
         default: 'all'
         type: choice
         options:
           - all
-          - both
           - jma_weekly
           - open_meteo_single_run
           - weathernews_prefecture
