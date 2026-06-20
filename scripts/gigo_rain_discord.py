@@ -23,6 +23,7 @@ from scripts.weather import (
     fetch_precipitation_probabilities,
     resolve_forecast_start_date,
 )
+from scripts.wn_prefecture import build_wnews_prefecture_store_results
 
 
 JST = ZoneInfo("Asia/Tokyo")
@@ -111,20 +112,22 @@ def notify(args: argparse.Namespace) -> int:
 
 
 def _source_values(raw: str) -> list[str]:
-    value = (raw or "both").strip().lower().replace("-", "_")
-    if value == "both":
-        return ["jma_weekly", "open_meteo_single_run"]
+    value = (raw or "all").strip().lower().replace("-", "_")
+    if value in {"all", "all_sources"}:
+        return ["jma_weekly", "open_meteo_single_run", "weathernews_prefecture"]
     if value in {"jma", "jma_weekly"}:
         return ["jma_weekly"]
     if value in {"open_meteo", "open_meteo_single_run", "single_run"}:
         return ["open_meteo_single_run"]
-    raise ValueError("FORECAST_SOURCE must be both, jma_weekly, or open_meteo_single_run")
+    if value in {"weathernews", "weathernews_prefecture"}:
+        return ["weathernews_prefecture"]
+    raise ValueError("FORECAST_SOURCE must be all, jma_weekly, open_meteo_single_run, or weathernews_prefecture")
 
 
 def notify_weekly(args: argparse.Namespace) -> int:
     csv_path = args.csv or os.getenv("GIGO_STORES_CSV", "data/gigo_stores.csv")
     webhook_url = args.discord_webhook_url or os.getenv("DISCORD_WEBHOOK_URL", "").strip()
-    source_raw = args.source or os.getenv("FORECAST_SOURCE", "both")
+    source_raw = args.source or os.getenv("FORECAST_SOURCE", "all")
     forecast_start_raw = args.forecast_start_date or os.getenv("FORECAST_START_DATE", "")
     week_days = args.week_days if args.week_days is not None else env_int("WEEK_DAYS", 7)
     min_probability = args.min_probability if args.min_probability is not None else env_int("MIN_POP_PERCENT", 0)
@@ -159,6 +162,9 @@ def notify_weekly(args: argparse.Namespace) -> int:
                 batch_size=batch_size,
             )
             title = f"【GiGO週間雨予報 / Open-Meteo Single Runs {model} run={run} / {forecast_start.isoformat()}から{week_days}日】"
+        elif source == "weathernews_prefecture":
+            results = build_wnews_prefecture_store_results(stores, week_start=forecast_start, week_days=week_days)
+            title = f"【GiGO週間雨予報 / Weathernews県庁所在地代表 / {forecast_start.isoformat()}から{week_days}日】"
         else:
             raise AssertionError(source)
 
@@ -203,7 +209,11 @@ def build_parser() -> argparse.ArgumentParser:
     weekly = sub.add_parser("notify-weekly", help="Fetch a fixed one-week forecast and post it to Discord.")
     weekly.add_argument("--csv", default=None)
     weekly.add_argument("--discord-webhook-url", default=None)
-    weekly.add_argument("--source", choices=["both", "jma_weekly", "open_meteo_single_run"], default=None)
+    weekly.add_argument(
+        "--source",
+        choices=["all", "jma_weekly", "open_meteo_single_run", "weathernews_prefecture", "weathernews"],
+        default=None,
+    )
     weekly.add_argument("--forecast-start-date", default=None, help="Forecast start date in YYYY-MM-DD. Empty means today JST.")
     weekly.add_argument("--week-days", type=int, default=None)
     weekly.add_argument("--min-probability", type=int, default=None)
