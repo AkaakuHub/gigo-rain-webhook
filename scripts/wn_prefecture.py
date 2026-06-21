@@ -90,6 +90,24 @@ def _date_from_month_day(month: int, day: int, *, base_date: date) -> date | Non
     return None
 
 
+def _date_from_day(day: int, *, base_date: date, fallback_offset: int) -> date:
+    expected = base_date + timedelta(days=fallback_offset)
+    if expected.day == day:
+        return expected
+    candidates: list[date] = []
+    for month_offset in (-1, 0, 1):
+        month_index = expected.month + month_offset
+        year = expected.year + (month_index - 1) // 12
+        month = (month_index - 1) % 12 + 1
+        try:
+            candidates.append(date(year, month, day))
+        except ValueError:
+            continue
+    if not candidates:
+        return expected
+    return min(candidates, key=lambda candidate: abs((candidate - expected).days))
+
+
 def _parse_wnews_date(value: object, *, base_date: date, fallback_offset: int) -> date:
     text = str(value or "").strip()
     if "今日" in text:
@@ -150,6 +168,24 @@ def _extract_table_probabilities(soup: BeautifulSoup, *, base_date: date) -> dic
     return output
 
 
+def _extract_current_week_probabilities(soup: BeautifulSoup, *, base_date: date) -> dict[date, int]:
+    output: dict[date, int] = {}
+    for offset, item in enumerate(soup.select('ul.wxweek_content[id^="wx__week"]')):
+        day_node = item.select_one(".date .day")
+        probability_node = item.select_one(".rain")
+        if day_node is None or probability_node is None:
+            continue
+        day_match = re.search(r"\d{1,2}", day_node.get_text(" ", strip=True))
+        if not day_match:
+            continue
+        probability = _parse_probability(probability_node.get_text(" ", strip=True))
+        if probability is None:
+            continue
+        target_date = _date_from_day(int(day_match.group(0)), base_date=base_date, fallback_offset=offset)
+        output[target_date] = probability
+    return output
+
+
 def extract_wnews_weekly_probabilities(
     html: str,
     *,
@@ -161,7 +197,9 @@ def extract_wnews_weekly_probabilities(
         raise ValueError("WEEK_DAYS must be positive")
     base = base_date or datetime.now(JST).date()
     soup = BeautifulSoup(html, "html.parser")
-    extracted = _extract_legacy_10day(soup, base_date=base)
+    extracted = _extract_current_week_probabilities(soup, base_date=base)
+    if not extracted:
+        extracted = _extract_legacy_10day(soup, base_date=base)
     if not extracted:
         extracted = _extract_table_probabilities(soup, base_date=base)
     target_dates = [week_start + timedelta(days=i) for i in range(week_days)]
