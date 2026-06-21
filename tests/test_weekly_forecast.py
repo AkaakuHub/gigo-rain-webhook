@@ -16,7 +16,7 @@ class WeeklyForecastTests(unittest.TestCase):
     def test_resolve_forecast_start_date_accepts_any_date(self) -> None:
         self.assertEqual(resolve_forecast_start_date("2026-06-08"), date(2026, 6, 8))
         self.assertEqual(resolve_forecast_start_date("2026-06-09"), date(2026, 6, 9))
-        self.assertEqual(resolve_forecast_start_date("", now=date(2026, 6, 9)), date(2026, 6, 9))
+        self.assertEqual(resolve_forecast_start_date("", now=date(2026, 6, 9)), date(2026, 6, 10))
 
     def test_default_previous_sunday_run(self) -> None:
         self.assertEqual(default_previous_sunday_run(date(2026, 6, 8), run_hour_utc=0), "2026-06-07T00:00")

@@ -99,7 +99,7 @@ Weathernews oneboxは地点単位の予報です。このリポジトリでは�
 | `DISCORD_WEBHOOK_URL` | Discord webhook URL。GitHub Secretsに登録します。 | なし |
 | `GIGO_STORES_CSV` | 静的店舗CSVのパス | `data/gigo_stores.csv` |
 | `FORECAST_SOURCE` | `all` / `jma_weekly` / `open_meteo_forecast` / `open_meteo_single_run` / `weathernews_prefecture` | `all` |
-| `FORECAST_START_DATE` | 予報開始日。例: `2026-06-09` | 実行日のJST日付 |
+| `FORECAST_START_DATE` | 予報開始日。例: `2026-06-09` | 実行日の翌JST日付 |
 | `WEEK_DAYS` | 何日分送るか | `7` |
 | `MIN_POP_PERCENT` | Discordへ載せる最低降水確率 | `0` |
 | `TOP_N_PER_DAY` | 各日で表示する上位店舗数 | `10` |

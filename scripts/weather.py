@@ -83,7 +83,8 @@ def parse_iso_date(value: str) -> date:
 def resolve_forecast_start_date(raw: str | None, *, now: date | None = None) -> date:
     if raw and raw.strip():
         return parse_iso_date(raw.strip())
-    return now or datetime.now().date()
+    base_date = now or datetime.now().date()
+    return base_date + timedelta(days=1)
 
 
 def default_previous_sunday_run(forecast_start: date, *, run_hour_utc: int = 0) -> str:
