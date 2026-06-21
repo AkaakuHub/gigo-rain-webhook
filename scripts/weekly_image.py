@@ -101,8 +101,16 @@ def _probability_color(probability: int) -> str:
     return _LOW
 
 
+def _result_color(result: DailyRainResult) -> str:
+    if result.probability >= 70 or (result.precipitation_mm is not None and result.precipitation_mm >= 20):
+        return _HIGH
+    if result.probability >= 40 or (result.precipitation_mm is not None and result.precipitation_mm >= 1):
+        return _MIDDLE
+    return _LOW
+
+
 def _weather_mark(probability: int, precipitation_mm: float | None) -> str:
-    if probability >= 70:
+    if probability >= 70 or (precipitation_mm is not None and precipitation_mm >= 20):
         return "☔"
     if probability >= 40 or (precipitation_mm is not None and precipitation_mm >= 1):
         return "🌧"
@@ -123,6 +131,17 @@ def _fit_text(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont
         if _measure_width(draw, candidate, font) <= max_width:
             return candidate
     return suffix
+
+
+def _draw_right_aligned(
+    draw: ImageDraw.ImageDraw,
+    right_x: int,
+    y: int,
+    text: str,
+    font: ImageFont.FreeTypeFont | ImageFont.ImageFont,
+    fill: str,
+) -> None:
+    draw.text((right_x - _measure_width(draw, text, font), y), text, font=font, fill=fill)
 
 
 def _group_weekly_results(
@@ -149,9 +168,13 @@ def _all_target_dates(sources: Sequence[SourceForecast]) -> list[date]:
 
 
 def _format_result_value(result: DailyRainResult) -> str:
-    if result.precipitation_mm is None:
-        return f"{result.probability}%"
-    return f"{result.probability}%/{result.precipitation_mm:g}mm"
+    if result.source.startswith("Open-Meteo") and result.probability == 0:
+        return f"{result.precipitation_mm or 0:g}mm"
+    if result.precipitation_mm is not None and result.probability == 0:
+        return f"{result.precipitation_mm:g}mm"
+    if result.precipitation_mm is not None:
+        return f"{result.probability}% {result.precipitation_mm:g}mm"
+    return f"{result.probability}%"
 
 
 def build_weekly_sources_image(
@@ -171,34 +194,35 @@ def build_weekly_sources_image(
         for source in sources
     ]
     target_dates = _all_target_dates(sources)
-    title_font = _load_font(34, bold=True)
-    date_font = _load_font(26, bold=True)
+    title_font = _load_font(36, bold=True)
+    date_font = _load_font(28, bold=True)
     source_font = _load_font(22, bold=True)
-    row_font = _load_font(19)
-    probability_font = _load_font(20, bold=True)
-    emoji_font = _load_emoji_font(20)
-    large_emoji_font = _load_emoji_font(32)
+    row_font = _load_font(18)
+    prefecture_font = _load_font(16, bold=True)
+    value_font = _load_font(21, bold=True)
+    emoji_font = _load_emoji_font(32)
+    large_emoji_font = _load_emoji_font(40)
 
-    width = 1500
-    margin = 40
-    card_gap = 20
-    card_padding = 24
-    row_height = 34
-    source_header_height = 44
+    width = 1800
+    margin = 28
+    card_gap = 14
+    card_padding = 18
+    row_height = 36
+    source_header_height = 38
     card_width = width - margin * 2
-    column_gap = 18
+    column_gap = 12
     columns = max(1, len(sources))
     column_width = int((card_width - card_padding * 2 - column_gap * (columns - 1)) / columns)
-    rows_per_source = min(top_n_per_day or 5, 5)
-    card_height = 94 + source_header_height + rows_per_source * row_height + card_padding
-    content_height = 88 + len(target_dates) * (card_height + card_gap)
+    rows_per_source = min(top_n_per_day or 10, 10)
+    card_height = 70 + source_header_height + rows_per_source * row_height + card_padding
+    content_height = 78 + len(target_dates) * (card_height + card_gap)
     height = max(360, content_height + margin)
 
     image = Image.new("RGB", (width, height), _BACKGROUND)
     draw = ImageDraw.Draw(image)
     display_title = _fit_text(draw, title.strip("【】"), title_font, width - margin * 2)
-    draw.text((margin, 28), display_title, font=title_font, fill=_TEXT)
-    y = 92
+    draw.text((margin, 22), display_title, font=title_font, fill=_TEXT)
+    y = 78
     if not target_dates:
         draw.rounded_rectangle((margin, y, width - margin, y + 120), radius=12, fill=_CARD, outline=_GRID)
         draw.text((margin + card_padding, y + card_padding), "対象店舗なし", font=date_font, fill=_TEXT)
@@ -210,21 +234,21 @@ def build_weekly_sources_image(
         draw.rounded_rectangle((margin, y, margin + 14, y + card_height), radius=6, fill=accent)
         _draw_text(
             draw,
-            (margin + card_padding, y + 14),
+            (margin + card_padding, y + 9),
             _weather_mark(max_probability, None),
             large_emoji_font,
             _TEXT,
             embedded_color=True,
         )
-        draw.text((margin + card_padding + 44, y + 20), format_date_heading(target_date), font=date_font, fill=_TEXT)
+        draw.text((margin + card_padding + 52, y + 16), format_date_heading(target_date), font=date_font, fill=_TEXT)
         draw.text(
-            (width - margin - 136, y + 18),
+            (width - margin - 142, y + 16),
             f"最大{max_probability}%",
-            font=probability_font,
+            font=value_font,
             fill=accent,
         )
 
-        column_y = y + 76
+        column_y = y + 62
         for source_index, source in enumerate(sources):
             column_x = margin + card_padding + source_index * (column_width + column_gap)
             source_color = _SOURCE_COLORS[source_index % len(_SOURCE_COLORS)]
@@ -239,19 +263,31 @@ def build_weekly_sources_image(
                 radius=4,
                 fill=source_color,
             )
-            draw.text((column_x + 18, column_y + 10), source.label, font=source_font, fill=_TEXT)
-            row_y = column_y + source_header_height + 12
+            draw.text((column_x + 18, column_y + 7), source.label, font=source_font, fill=_TEXT)
+            row_y = column_y + source_header_height + 8
             daily_results = daily_groups[source_index]
             if not daily_results:
                 draw.text((column_x + 18, row_y), "対象店舗なし", font=row_font, fill=_MUTED)
             for result in daily_results[:rows_per_source]:
-                color = _probability_color(result.probability)
+                color = _result_color(result)
                 mark = _weather_mark(result.probability, result.precipitation_mm)
-                name = _fit_text(draw, result.store.name, row_font, column_width - 210)
                 value = _format_result_value(result)
-                _draw_text(draw, (column_x + 18, row_y - 2), mark, emoji_font, color, embedded_color=True)
-                draw.text((column_x + 48, row_y), name, font=row_font, fill=_TEXT)
-                draw.text((column_x + column_width - 118, row_y - 1), value, font=probability_font, fill=color)
+                _draw_text(draw, (column_x + 14, row_y - 8), mark, emoji_font, color, embedded_color=True)
+                prefecture_x = column_x + 52
+                draw.rounded_rectangle(
+                    (prefecture_x, row_y + 1, prefecture_x + 88, row_y + 27),
+                    radius=6,
+                    fill="#edf2f7",
+                    outline="#dbe3f0",
+                )
+                prefecture = _fit_text(draw, result.store.prefecture, prefecture_font, 80)
+                draw.text((prefecture_x + 7, row_y + 4), prefecture, font=prefecture_font, fill=_MUTED)
+                name_x = column_x + 152
+                value_right_x = column_x + column_width - 16
+                value_width = max(96, _measure_width(draw, value, value_font))
+                name = _fit_text(draw, result.store.name, row_font, value_right_x - value_width - name_x - 12)
+                draw.text((name_x, row_y + 2), name, font=row_font, fill=_TEXT)
+                _draw_right_aligned(draw, value_right_x, row_y, value, value_font, color)
                 row_y += row_height
         y += card_height + card_gap
 
