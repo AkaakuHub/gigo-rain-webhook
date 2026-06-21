@@ -61,8 +61,10 @@ def _load_font(size: int, *, bold: bool = False) -> ImageFont.FreeTypeFont | Ima
             *candidates,
         ]
     for path in candidates:
-        if Path(path).exists():
+        try:
             return ImageFont.truetype(path, size=size)
+        except OSError:
+            continue
     return ImageFont.load_default()
 
 
@@ -76,21 +78,6 @@ def _load_emoji_font(size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
             except OSError:
                 continue
     return _load_font(size)
-
-
-def _draw_text(
-    draw: ImageDraw.ImageDraw,
-    xy: tuple[int, int],
-    text: str,
-    font: ImageFont.FreeTypeFont | ImageFont.ImageFont,
-    fill: str,
-    *,
-    embedded_color: bool = False,
-) -> None:
-    try:
-        draw.text(xy, text, font=font, fill=fill, embedded_color=embedded_color)
-    except TypeError:
-        draw.text(xy, text, font=font, fill=fill)
 
 
 def _probability_color(probability: int) -> str:
@@ -114,7 +101,35 @@ def _weather_mark(probability: int, precipitation_mm: float | None) -> str:
         return "☔"
     if probability >= 40 or (precipitation_mm is not None and precipitation_mm >= 1):
         return "🌧"
-    return "🌂"
+    return "☁️"
+
+
+def _draw_resized_emoji(
+    draw: ImageDraw.ImageDraw,
+    x: int,
+    y: int,
+    *,
+    size: int,
+    emoji: str,
+    font: ImageFont.FreeTypeFont | ImageFont.ImageFont,
+) -> None:
+    canvas_size = max(size * 6, 192)
+    emoji_image = Image.new("RGBA", (canvas_size, canvas_size), (0, 0, 0, 0))
+    emoji_draw = ImageDraw.Draw(emoji_image)
+    try:
+        emoji_draw.text((canvas_size // 3, canvas_size // 3), emoji, font=font, embedded_color=True)
+    except TypeError:
+        emoji_draw.text((canvas_size // 3, canvas_size // 3), emoji, font=font)
+    bbox = emoji_image.getbbox()
+    if bbox is None:
+        return
+    cropped = emoji_image.crop(bbox)
+    width, height = cropped.size
+    ratio = min(size / width, size / height)
+    resized_size = (max(1, int(width * ratio)), max(1, int(height * ratio)))
+    resized = cropped.resize(resized_size, Image.Resampling.LANCZOS)
+    target = draw._image
+    target.paste(resized, (x + (size - resized_size[0]) // 2, y + (size - resized_size[1]) // 2), resized)
 
 
 def _measure_width(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont | ImageFont.ImageFont) -> int:
@@ -200,8 +215,8 @@ def build_weekly_sources_image(
     row_font = _load_font(18)
     prefecture_font = _load_font(16, bold=True)
     value_font = _load_font(21, bold=True)
-    emoji_font = _load_emoji_font(32)
-    large_emoji_font = _load_emoji_font(40)
+    emoji_font = _load_emoji_font(64)
+    large_emoji_font = _load_emoji_font(96)
 
     width = 1800
     margin = 28
@@ -232,13 +247,13 @@ def build_weekly_sources_image(
         accent = _probability_color(max_probability)
         draw.rounded_rectangle((margin, y, width - margin, y + card_height), radius=12, fill=_CARD, outline=_GRID)
         draw.rounded_rectangle((margin, y, margin + 14, y + card_height), radius=6, fill=accent)
-        _draw_text(
+        _draw_resized_emoji(
             draw,
-            (margin + card_padding, y + 9),
-            _weather_mark(max_probability, None),
-            large_emoji_font,
-            _TEXT,
-            embedded_color=True,
+            margin + card_padding,
+            y + 9,
+            size=40,
+            emoji=_weather_mark(max_probability, None),
+            font=large_emoji_font,
         )
         draw.text((margin + card_padding + 52, y + 16), format_date_heading(target_date), font=date_font, fill=_TEXT)
         draw.text(
@@ -270,9 +285,15 @@ def build_weekly_sources_image(
                 draw.text((column_x + 18, row_y), "対象店舗なし", font=row_font, fill=_MUTED)
             for result in daily_results[:rows_per_source]:
                 color = _result_color(result)
-                mark = _weather_mark(result.probability, result.precipitation_mm)
                 value = _format_result_value(result)
-                _draw_text(draw, (column_x + 14, row_y - 8), mark, emoji_font, color, embedded_color=True)
+                _draw_resized_emoji(
+                    draw,
+                    column_x + 14,
+                    row_y - 5,
+                    size=28,
+                    emoji=_weather_mark(result.probability, result.precipitation_mm),
+                    font=emoji_font,
+                )
                 prefecture_x = column_x + 52
                 draw.rounded_rectangle(
                     (prefecture_x, row_y + 1, prefecture_x + 88, row_y + 27),
