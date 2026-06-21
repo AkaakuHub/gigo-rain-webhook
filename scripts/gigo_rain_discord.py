@@ -12,7 +12,13 @@ from zoneinfo import ZoneInfo
 
 import requests
 
-from scripts.discord_message import build_message_lines, build_weekly_message_lines, send_discord_messages, split_discord_messages
+from scripts.discord_message import (
+    build_message_lines,
+    build_weekly_message_lines,
+    send_discord_image,
+    send_discord_messages,
+    split_discord_messages,
+)
 from scripts.geocoding import attach_coordinates
 from scripts.jma_weekly import build_jma_weekly_store_results
 from scripts.shop_scraper import fetch_all_records
@@ -23,6 +29,7 @@ from scripts.weather import (
     fetch_precipitation_probabilities,
     resolve_forecast_start_date,
 )
+from scripts.weekly_image import SourceForecast, build_weekly_sources_image
 from scripts.wn_prefecture import build_wnews_prefecture_store_results
 
 
@@ -124,6 +131,25 @@ def _source_values(raw: str) -> list[str]:
     raise ValueError("FORECAST_SOURCE must be all, jma_weekly, open_meteo_single_run, or weathernews_prefecture")
 
 
+def _weekly_output_format(raw: str) -> str:
+    value = (raw or "image").strip().lower()
+    if value in {"image", "png"}:
+        return "image"
+    if value in {"text", "message"}:
+        return "text"
+    raise ValueError("WEEKLY_OUTPUT_FORMAT must be image or text")
+
+
+def _source_label(source: str) -> str:
+    if source == "jma_weekly":
+        return "気象庁"
+    if source == "open_meteo_single_run":
+        return "Open-Meteo"
+    if source == "weathernews_prefecture":
+        return "Weathernews"
+    raise AssertionError(source)
+
+
 def notify_weekly(args: argparse.Namespace) -> int:
     csv_path = args.csv or os.getenv("GIGO_STORES_CSV", "data/gigo_stores.csv")
     webhook_url = args.discord_webhook_url or os.getenv("DISCORD_WEBHOOK_URL", "").strip()
@@ -134,12 +160,15 @@ def notify_weekly(args: argparse.Namespace) -> int:
     top_n_per_day = args.top_n_per_day if args.top_n_per_day is not None else env_optional_int("TOP_N_PER_DAY", 10)
     batch_size = args.batch_size if args.batch_size is not None else env_int("OPEN_METEO_BATCH_SIZE", 50)
     dry_run = args.dry_run or env_bool("DRY_RUN", False)
+    output_format = _weekly_output_format(args.output_format or os.getenv("WEEKLY_OUTPUT_FORMAT", "image"))
+    image_output = args.image_output or os.getenv("IMAGE_OUTPUT", "weekly_forecast.png")
 
     today_jst = datetime.now(JST).date()
     forecast_start = resolve_forecast_start_date(forecast_start_raw, now=today_jst)
     stores = load_stores(csv_path)
     sources = _source_values(source_raw)
     all_summary: list[dict[str, object]] = []
+    image_sources: list[SourceForecast] = []
 
     for source in sources:
         if source == "jma_weekly":
@@ -168,13 +197,49 @@ def notify_weekly(args: argparse.Namespace) -> int:
         else:
             raise AssertionError(source)
 
-        lines = build_weekly_message_lines(results, title=title, min_probability=min_probability, top_n_per_day=top_n_per_day)
-        messages = split_discord_messages(lines)
-        if dry_run:
-            print("\n\n--- Discord message ---\n\n".join(messages))
+        if output_format == "image":
+            image_sources.append(SourceForecast(label=_source_label(source), results=results))
+            message_count = 0
         else:
-            send_discord_messages(webhook_url, messages)
-        all_summary.append({"source": source, "forecast_start": forecast_start.isoformat(), "stores": len(stores), "messages": len(messages)})
+            lines = build_weekly_message_lines(results, title=title, min_probability=min_probability, top_n_per_day=top_n_per_day)
+            messages = split_discord_messages(lines)
+            if dry_run:
+                print("\n\n--- Discord message ---\n\n".join(messages))
+            else:
+                send_discord_messages(webhook_url, messages)
+            message_count = len(messages)
+        all_summary.append(
+            {
+                "source": source,
+                "forecast_start": forecast_start.isoformat(),
+                "stores": len(stores),
+                "messages": message_count,
+                "output_format": output_format,
+            }
+        )
+
+    if output_format == "image":
+        title = f"GiGO週間雨予報 / {forecast_start.isoformat()}から{week_days}日"
+        weekly_image = build_weekly_sources_image(
+            image_sources,
+            title=title,
+            min_probability=min_probability,
+            top_n_per_day=top_n_per_day,
+        )
+        if dry_run:
+            output_path = Path(image_output)
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+            output_path.write_bytes(weekly_image.content)
+            print(f"Wrote weekly forecast image: {output_path}")
+        else:
+            send_discord_image(
+                webhook_url,
+                content=title,
+                filename=weekly_image.filename,
+                image_bytes=weekly_image.content,
+            )
+        for summary in all_summary:
+            summary["messages"] = 1
 
     print(json.dumps({"weekly": all_summary}, ensure_ascii=False))
     return 0
@@ -222,6 +287,8 @@ def build_parser() -> argparse.ArgumentParser:
     weekly.add_argument("--open-meteo-run", default=None, help="UTC model initialisation time, for example 2026-06-07T00:00.")
     weekly.add_argument("--open-meteo-run-hour-utc", type=int, default=None)
     weekly.add_argument("--open-meteo-model", default=None)
+    weekly.add_argument("--output-format", choices=["image", "text"], default=None)
+    weekly.add_argument("--image-output", default=None)
     weekly.add_argument("--dry-run", action="store_true")
     weekly.set_defaults(func=notify_weekly)
     return parser

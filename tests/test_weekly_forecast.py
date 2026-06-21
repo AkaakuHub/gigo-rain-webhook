@@ -4,9 +4,11 @@ import unittest
 from datetime import date
 
 from scripts.discord_message import build_weekly_message_lines, split_discord_messages
+from scripts.gigo_rain_discord import _weekly_output_format
 from scripts.gigo_models import DailyRainResult, Store
 from scripts.jma_weekly import extract_jma_weekly_probabilities
 from scripts.weather import default_previous_sunday_run, resolve_forecast_start_date
+from scripts.weekly_image import build_weekly_forecast_image
 from scripts.wn_prefecture import extract_wnews_weekly_probabilities
 
 
@@ -20,6 +22,11 @@ class WeeklyForecastTests(unittest.TestCase):
         self.assertEqual(default_previous_sunday_run(date(2026, 6, 8), run_hour_utc=0), "2026-06-07T00:00")
         self.assertEqual(default_previous_sunday_run(date(2026, 6, 9), run_hour_utc=0), "2026-06-07T00:00")
         self.assertEqual(default_previous_sunday_run(date(2026, 6, 8), run_hour_utc=6), "2026-06-07T06:00")
+
+    def test_weekly_output_format_defaults_to_image(self) -> None:
+        self.assertEqual(_weekly_output_format(""), "image")
+        self.assertEqual(_weekly_output_format("png"), "image")
+        self.assertEqual(_weekly_output_format("text"), "text")
 
     def test_extract_jma_weekly_probabilities(self) -> None:
         payload = [
@@ -109,6 +116,16 @@ class WeeklyForecastTests(unittest.TestCase):
         self.assertIn("GiGO町田/東京都 40% / 1.5mm", text)
         self.assertIn("2026-06-09(火)", text)
         self.assertEqual(len(split_discord_messages(lines, limit=1900)), 1)
+
+    def test_weekly_forecast_image_is_png(self) -> None:
+        store = Store("chofu", "GiGO調布", "東京都", "東京都調布市", 35.65, 139.54, "https://example.test/chofu")
+        image = build_weekly_forecast_image(
+            [DailyRainResult(store, date(2026, 6, 8), 75, "test")],
+            title="title",
+            top_n_per_day=1,
+        )
+        self.assertEqual(image.filename, "weekly_forecast.png")
+        self.assertTrue(image.content.startswith(b"\x89PNG\r\n\x1a\n"))
 
 
 if __name__ == "__main__":

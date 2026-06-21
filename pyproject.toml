@@ -4,6 +4,7 @@ version = "0.1.0"
 requires-python = ">=3.12"
 dependencies = [
     "beautifulsoup4==4.13.4",
+    "pillow>=12.2.0",
     "requests==2.32.5",
 ]
 

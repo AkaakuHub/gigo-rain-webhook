@@ -1,10 +1,12 @@
 # GiGO週間雨予報 Discord通知
 
-GitHub Actionsで毎日、その日から1週間分の雨予報を取得し、Discord webhookへ文字列で送信します。
+GitHub Actionsで毎日、その日から1週間分の雨予報を取得し、Discord webhookへ1枚のPNG画像として送信します。
 
 毎回GiGO店舗をスクレイピングしません。通常の通知では、`data/gigo_stores.csv` に保存済みの店舗名・都道府県・住所・座標を使います。店舗一覧の更新は、初回と店舗追加時だけ手動Actionで実行します。
 
-Discordに表示される内容は次の形式です。
+Discordに表示される画像は、日付ごとに降水確率が高い店舗を色付きで並べます。
+
+テキスト出力へ戻す場合は、`WEEKLY_OUTPUT_FORMAT=text`を指定します。テキスト形式は次の内容です。
 
 ```text
 【GiGO週間雨予報 / Open-Meteo Single Runs jma_gsm run=2026-06-07T00:00 / 2026-06-08から7日】
@@ -96,6 +98,8 @@ Weathernews oneboxは地点単位の予報です。このリポジトリでは�
 | `WEEK_DAYS` | 何日分送るか | `7` |
 | `MIN_POP_PERCENT` | Discordへ載せる最低降水確率 | `0` |
 | `TOP_N_PER_DAY` | 各日で表示する上位店舗数 | `10` |
+| `WEEKLY_OUTPUT_FORMAT` | `image` / `text`。週間通知の出力形式 | `image` |
+| `IMAGE_OUTPUT` | dry-run時に画像を書き出すパス | `weekly_forecast.png` |
 | `OPEN_METEO_BATCH_SIZE` | Open-Meteoへまとめて問い合わせる店舗数 | `50` |
 | `OPEN_METEO_RUN` | Single RunsのUTC初期化時刻。例: `2026-06-07T00:00` | 予報開始日以前の直近日曜00UTC |
 | `OPEN_METEO_RUN_HOUR_UTC` | `OPEN_METEO_RUN`未指定時の日曜run時刻 | `0` |
@@ -107,8 +111,9 @@ Weathernews oneboxは地点単位の予報です。このリポジトリでは�
 ```bash
 uv sync
 uv run python -m scripts.gigo_rain_discord update-stores --output data/gigo_stores.csv
-uv run python -m scripts.gigo_rain_discord notify-weekly --source weathernews_prefecture --forecast-start-date 2026-06-09 --top-n-per-day 10 --dry-run
-uv run python -m scripts.gigo_rain_discord notify-weekly --source open_meteo_single_run --forecast-start-date 2026-06-09 --open-meteo-run 2026-06-07T00:00 --top-n-per-day 10 --dry-run
+uv run python -m scripts.gigo_rain_discord notify-weekly --source weathernews_prefecture --forecast-start-date 2026-06-09 --top-n-per-day 10 --dry-run --image-output weekly_forecast.png
+uv run python -m scripts.gigo_rain_discord notify-weekly --source open_meteo_single_run --forecast-start-date 2026-06-09 --open-meteo-run 2026-06-07T00:00 --top-n-per-day 10 --dry-run --image-output weekly_forecast.png
+uv run python -m scripts.gigo_rain_discord notify-weekly --source weathernews_prefecture --output-format text --forecast-start-date 2026-06-09 --top-n-per-day 10 --dry-run
 DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/..." uv run python -m scripts.gigo_rain_discord notify-weekly --source all --forecast-start-date 2026-06-09 --open-meteo-run 2026-06-07T00:00
 ```
 

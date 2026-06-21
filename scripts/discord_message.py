@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from collections import defaultdict
 from datetime import date
 from typing import Sequence
@@ -104,3 +105,24 @@ def send_discord_messages(webhook_url: str, messages: Sequence[str], *, session:
     for message in messages:
         body = {"content": message, "allowed_mentions": {"parse": []}}
         request_json_with_retry(http, webhook_url, json_body=body, method="POST")
+
+
+def send_discord_image(
+    webhook_url: str,
+    *,
+    content: str,
+    filename: str,
+    image_bytes: bytes,
+    session: requests.Session | None = None,
+) -> None:
+    if not webhook_url or not webhook_url.startswith("https://"):
+        raise ValueError("DISCORD_WEBHOOK_URL is not set correctly")
+    http = session or requests.Session()
+    payload = {"content": content, "allowed_mentions": {"parse": []}}
+    response = http.post(
+        webhook_url,
+        data={"payload_json": json.dumps(payload, ensure_ascii=False)},
+        files={"files[0]": (filename, image_bytes, "image/png")},
+        timeout=30,
+    )
+    response.raise_for_status()
