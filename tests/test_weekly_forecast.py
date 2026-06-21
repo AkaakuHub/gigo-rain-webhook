@@ -4,10 +4,10 @@ import unittest
 from datetime import date
 
 from scripts.discord_message import build_weekly_message_lines, split_discord_messages
-from scripts.gigo_rain_discord import _weekly_output_format
+from scripts.gigo_rain_discord import _source_values, _weekly_output_format
 from scripts.gigo_models import DailyRainResult, Store
 from scripts.jma_weekly import extract_jma_weekly_probabilities
-from scripts.weather import default_previous_sunday_run, resolve_forecast_start_date
+from scripts.weather import _open_meteo_daily_results_from_payload, default_previous_sunday_run, resolve_forecast_start_date
 from scripts.weekly_image import build_weekly_forecast_image
 from scripts.wn_prefecture import extract_wnews_weekly_probabilities
 
@@ -27,6 +27,31 @@ class WeeklyForecastTests(unittest.TestCase):
         self.assertEqual(_weekly_output_format(""), "image")
         self.assertEqual(_weekly_output_format("png"), "image")
         self.assertEqual(_weekly_output_format("text"), "text")
+
+    def test_all_source_uses_open_meteo_forecast(self) -> None:
+        self.assertEqual(_source_values("all"), ["jma_weekly", "open_meteo_forecast", "weathernews_prefecture"])
+        self.assertEqual(_source_values("open_meteo"), ["open_meteo_forecast"])
+        self.assertEqual(_source_values("open_meteo_single_run"), ["open_meteo_single_run"])
+
+    def test_open_meteo_daily_results_from_payload(self) -> None:
+        store = Store("chofu", "GiGO調布", "東京都", "東京都調布市", 35.65, 139.54, "https://example.test/chofu")
+        payload = {
+            "daily": {
+                "time": ["2026-06-21", "2026-06-22"],
+                "precipitation_probability_max": [84, None],
+                "precipitation_sum": [6.3, 0.0],
+            }
+        }
+        actual = _open_meteo_daily_results_from_payload(
+            store,
+            payload,
+            days=[date(2026, 6, 21), date(2026, 6, 22)],
+            source="Open-Meteo Forecast",
+        )
+        self.assertEqual(actual[0].probability, 84)
+        self.assertEqual(actual[0].precipitation_mm, 6.3)
+        self.assertEqual(actual[1].probability, 0)
+        self.assertEqual(actual[1].precipitation_mm, 0.0)
 
     def test_extract_jma_weekly_probabilities(self) -> None:
         payload = [

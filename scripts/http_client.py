@@ -53,12 +53,15 @@ def request_json_with_retry(
             else:
                 raise ValueError(f"Unsupported method: {method}")
             if response.status_code == 429:
-                retry_after = 1.0
+                retry_after = 10.0
                 try:
                     body = response.json()
                     retry_after = float(body.get("retry_after", retry_after))
                 except Exception:
                     retry_after = float(response.headers.get("Retry-After", retry_after))
+                last_error = RuntimeError(f"HTTP 429 Too Many Requests for {url}")
+                if attempt == max_attempts:
+                    break
                 time.sleep(min(max(retry_after, 0.5), 30.0))
                 continue
             if 500 <= response.status_code < 600 and attempt < max_attempts:

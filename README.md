@@ -46,11 +46,12 @@ data/gigo_stores.csv                        # 静的店舗CSV
 ```text
 all
 jma_weekly
+open_meteo_forecast
 open_meteo_single_run
 weathernews_prefecture
 ```
 
-`all` は、気象庁府県週間天気予報方式、Open-Meteo Single Runs方式、Weathernews県庁所在地代表方式の3つを送ります。
+`all` は、気象庁府県週間天気予報方式、Open-Meteo Forecast方式、Weathernews県庁所在地代表方式の3つを送ります。
 
 ### jma_weekly
 
@@ -58,11 +59,15 @@ weathernews_prefecture
 
 この方式は都道府県代表の府県予報区コードに寄せています。そのため、北海道、東京都離島、鹿児島県奄美地方など、気象庁が細分している地域は厳密には代表区域扱いになります。
 
+### open_meteo_forecast
+
+Open-Meteo Forecast APIから、店舗座標ごとの日別降水確率と日降水量を取得します。通常の比較ではこの方式を使います。
+
 ### open_meteo_single_run
 
 Open-Meteo Single Runs APIから、指定したUTC初期化時刻のモデルrunを取得します。既定では、予報開始日以前の直近日曜日 `00:00 UTC` の `jma_gsm` runを使います。
 
-`jma_gsm` では `precipitation_probability_max` が未定義で返る場合があるため、Open-Meteo方式の表示には `precipitation_sum` の日降水量も含めます。
+`jma_gsm` のSingle Runsでは `precipitation_probability_max` が未定義で返る場合があるため、Single Runs方式の表示には `precipitation_sum` の日降水量も含めます。
 
 例として、2026年6月9日(火)から7日分を、2026年6月7日(日)時点の予報で見たい場合は、手動実行で次を指定します。
 
@@ -84,8 +89,8 @@ Weathernews oneboxは地点単位の予報です。このリポジトリでは�
 
 1. `data/gigo_stores.csv` を読む。
 2. 選択した予報ソースで、実行日から7日分の予報を取得する。
-3. 各日ごとに、気象庁方式とWeathernews方式は降水確率順、Open-Meteo方式は降水確率と日降水量順で店舗を並べる。
-4. Discord webhookへ通常の文字列として送信する。
+3. 各日ごとに、降水確率と日降水量順で店舗を並べる。
+4. Discord webhookへPNG画像として送信する。
 
 ## 環境変数
 
@@ -93,14 +98,14 @@ Weathernews oneboxは地点単位の予報です。このリポジトリでは�
 |---|---|---|
 | `DISCORD_WEBHOOK_URL` | Discord webhook URL。GitHub Secretsに登録します。 | なし |
 | `GIGO_STORES_CSV` | 静的店舗CSVのパス | `data/gigo_stores.csv` |
-| `FORECAST_SOURCE` | `all` / `jma_weekly` / `open_meteo_single_run` / `weathernews_prefecture` | `all` |
+| `FORECAST_SOURCE` | `all` / `jma_weekly` / `open_meteo_forecast` / `open_meteo_single_run` / `weathernews_prefecture` | `all` |
 | `FORECAST_START_DATE` | 予報開始日。例: `2026-06-09` | 実行日のJST日付 |
 | `WEEK_DAYS` | 何日分送るか | `7` |
 | `MIN_POP_PERCENT` | Discordへ載せる最低降水確率 | `0` |
 | `TOP_N_PER_DAY` | 各日で表示する上位店舗数 | `10` |
 | `WEEKLY_OUTPUT_FORMAT` | `image` / `text`。週間通知の出力形式 | `image` |
 | `IMAGE_OUTPUT` | dry-run時に画像を書き出すパス | `weekly_forecast.png` |
-| `OPEN_METEO_BATCH_SIZE` | Open-Meteoへまとめて問い合わせる店舗数 | `50` |
+| `OPEN_METEO_BATCH_SIZE` | Open-Meteoへまとめて問い合わせる店舗数 | `100` |
 | `OPEN_METEO_RUN` | Single RunsのUTC初期化時刻。例: `2026-06-07T00:00` | 予報開始日以前の直近日曜00UTC |
 | `OPEN_METEO_RUN_HOUR_UTC` | `OPEN_METEO_RUN`未指定時の日曜run時刻 | `0` |
 | `OPEN_METEO_MODEL` | Open-Meteoのmodels値 | `jma_gsm` |
@@ -112,9 +117,10 @@ Weathernews oneboxは地点単位の予報です。このリポジトリでは�
 uv sync
 uv run python -m scripts.gigo_rain_discord update-stores --output data/gigo_stores.csv
 uv run python -m scripts.gigo_rain_discord notify-weekly --source weathernews_prefecture --forecast-start-date 2026-06-09 --top-n-per-day 10 --dry-run --image-output weekly_forecast.png
+uv run python -m scripts.gigo_rain_discord notify-weekly --source open_meteo_forecast --forecast-start-date 2026-06-09 --top-n-per-day 10 --dry-run --image-output weekly_forecast.png
 uv run python -m scripts.gigo_rain_discord notify-weekly --source open_meteo_single_run --forecast-start-date 2026-06-09 --open-meteo-run 2026-06-07T00:00 --top-n-per-day 10 --dry-run --image-output weekly_forecast.png
 uv run python -m scripts.gigo_rain_discord notify-weekly --source weathernews_prefecture --output-format text --forecast-start-date 2026-06-09 --top-n-per-day 10 --dry-run
-DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/..." uv run python -m scripts.gigo_rain_discord notify-weekly --source all --forecast-start-date 2026-06-09 --open-meteo-run 2026-06-07T00:00
+DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/..." uv run python -m scripts.gigo_rain_discord notify-weekly --source all --forecast-start-date 2026-06-09
 ```
 
 ## 注意点

@@ -6,13 +6,14 @@ on:
   workflow_dispatch:
     inputs:
       forecast_source:
-        description: 'all / jma_weekly / open_meteo_single_run / weathernews_prefecture'
+        description: 'all / jma_weekly / open_meteo_forecast / open_meteo_single_run / weathernews_prefecture'
         required: true
         default: 'all'
         type: choice
         options:
           - all
           - jma_weekly
+          - open_meteo_forecast
           - open_meteo_single_run
           - weathernews_prefecture
       forecast_start_date:
@@ -51,7 +52,7 @@ jobs:
       WEEK_DAYS: '7'
       MIN_POP_PERCENT: '0'
       TOP_N_PER_DAY: ${{ github.event.inputs.top_n_per_day || '10' }}
-      OPEN_METEO_BATCH_SIZE: '50'
+      OPEN_METEO_BATCH_SIZE: '100'
       OPEN_METEO_RUN: ${{ github.event.inputs.open_meteo_run || '' }}
       OPEN_METEO_RUN_HOUR_UTC: '0'
       OPEN_METEO_MODEL: ${{ github.event.inputs.open_meteo_model || 'jma_gsm' }}

@@ -25,6 +25,7 @@ from scripts.shop_scraper import fetch_all_records
 from scripts.store_repository import load_stores, write_store_csv
 from scripts.weather import (
     default_previous_sunday_run,
+    fetch_open_meteo_forecast_week,
     fetch_open_meteo_single_run_week,
     fetch_precipitation_probabilities,
     resolve_forecast_start_date,
@@ -97,7 +98,7 @@ def notify(args: argparse.Namespace) -> int:
     morning_end_hour = args.morning_end_hour if args.morning_end_hour is not None else env_int("MORNING_END_HOUR", 12)
     min_probability = args.min_probability if args.min_probability is not None else env_int("MIN_POP_PERCENT", 0)
     top_n = args.top_n if args.top_n is not None else env_optional_int("TOP_N", 10)
-    batch_size = args.batch_size if args.batch_size is not None else env_int("OPEN_METEO_BATCH_SIZE", 50)
+    batch_size = args.batch_size if args.batch_size is not None else env_int("OPEN_METEO_BATCH_SIZE", 100)
     dry_run = args.dry_run or env_bool("DRY_RUN", False)
     target = datetime.now(JST).date() + timedelta(days=target_days_ahead)
     stores = load_stores(csv_path)
@@ -121,14 +122,16 @@ def notify(args: argparse.Namespace) -> int:
 def _source_values(raw: str) -> list[str]:
     value = (raw or "all").strip().lower().replace("-", "_")
     if value in {"all", "all_sources"}:
-        return ["jma_weekly", "open_meteo_single_run", "weathernews_prefecture"]
+        return ["jma_weekly", "open_meteo_forecast", "weathernews_prefecture"]
     if value in {"jma", "jma_weekly"}:
         return ["jma_weekly"]
-    if value in {"open_meteo", "open_meteo_single_run", "single_run"}:
+    if value in {"open_meteo", "open_meteo_forecast"}:
+        return ["open_meteo_forecast"]
+    if value in {"open_meteo_single_run", "single_run"}:
         return ["open_meteo_single_run"]
     if value in {"weathernews", "weathernews_prefecture"}:
         return ["weathernews_prefecture"]
-    raise ValueError("FORECAST_SOURCE must be all, jma_weekly, open_meteo_single_run, or weathernews_prefecture")
+    raise ValueError("FORECAST_SOURCE must be all, jma_weekly, open_meteo_forecast, open_meteo_single_run, or weathernews_prefecture")
 
 
 def _weekly_output_format(raw: str) -> str:
@@ -143,8 +146,10 @@ def _weekly_output_format(raw: str) -> str:
 def _source_label(source: str) -> str:
     if source == "jma_weekly":
         return "気象庁"
-    if source == "open_meteo_single_run":
+    if source == "open_meteo_forecast":
         return "Open-Meteo"
+    if source == "open_meteo_single_run":
+        return "Open-Meteo Run"
     if source == "weathernews_prefecture":
         return "Weathernews"
     raise AssertionError(source)
@@ -158,7 +163,7 @@ def notify_weekly(args: argparse.Namespace) -> int:
     week_days = args.week_days if args.week_days is not None else env_int("WEEK_DAYS", 7)
     min_probability = args.min_probability if args.min_probability is not None else env_int("MIN_POP_PERCENT", 0)
     top_n_per_day = args.top_n_per_day if args.top_n_per_day is not None else env_optional_int("TOP_N_PER_DAY", 10)
-    batch_size = args.batch_size if args.batch_size is not None else env_int("OPEN_METEO_BATCH_SIZE", 50)
+    batch_size = args.batch_size if args.batch_size is not None else env_int("OPEN_METEO_BATCH_SIZE", 100)
     dry_run = args.dry_run or env_bool("DRY_RUN", False)
     output_format = _weekly_output_format(args.output_format or os.getenv("WEEKLY_OUTPUT_FORMAT", "image"))
     image_output = args.image_output or os.getenv("IMAGE_OUTPUT", "weekly_forecast.png")
@@ -174,6 +179,14 @@ def notify_weekly(args: argparse.Namespace) -> int:
         if source == "jma_weekly":
             results = build_jma_weekly_store_results(stores, week_start=forecast_start, week_days=week_days)
             title = f"【GiGO週間雨予報 / 気象庁府県週間天気予報 / {forecast_start.isoformat()}から{week_days}日】"
+        elif source == "open_meteo_forecast":
+            results = fetch_open_meteo_forecast_week(
+                stores,
+                week_start=forecast_start,
+                week_days=week_days,
+                batch_size=batch_size,
+            )
+            title = f"【GiGO週間雨予報 / Open-Meteo Forecast / {forecast_start.isoformat()}から{week_days}日】"
         elif source == "open_meteo_single_run":
             model = args.open_meteo_model or os.getenv("OPEN_METEO_MODEL", "jma_gsm")
             run = args.open_meteo_run or os.getenv("OPEN_METEO_RUN", "").strip()
@@ -276,7 +289,7 @@ def build_parser() -> argparse.ArgumentParser:
     weekly.add_argument("--discord-webhook-url", default=None)
     weekly.add_argument(
         "--source",
-        choices=["all", "jma_weekly", "open_meteo_single_run", "weathernews_prefecture", "weathernews"],
+        choices=["all", "jma_weekly", "open_meteo_forecast", "open_meteo_single_run", "weathernews_prefecture", "weathernews"],
         default=None,
     )
     weekly.add_argument("--forecast-start-date", default=None, help="Forecast start date in YYYY-MM-DD. Empty means today JST.")
